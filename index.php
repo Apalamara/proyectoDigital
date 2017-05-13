@@ -1,3 +1,7 @@
 <?php require_once('header.php'); ?>
-<?php require_once('menu.php'); ?>
+<main>
+	<section>
+		<h2>Index</h2>
+	</section>
+</main>
 <?php require_once('footer.php'); ?>
