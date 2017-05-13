@@ -11,4 +11,6 @@ Acá vamos a poner todos los archivos del proyecto
 ### Links útiles
 
 *   [Documentación de Markdown](https://daringfireball.net/projects/markdown/)
+*   [Html5 Boilerplate](https://html5boilerplate.com/)
 
+*   [Sublimetext Package Control](https://packagecontrol.io/)

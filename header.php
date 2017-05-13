@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>OfficeGuru</title>
+	<!-- https://necolas.github.io/normalize.css/ -->
+	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
