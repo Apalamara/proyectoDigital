@@ -18,6 +18,7 @@
 				<li><a href="index.php">Home</a></li>
 				<li><a href="login.php">Log In</a></li>
 				<li><a href="register.php">Registro</a></li>
+				<li><a href="faq.php">Faq</a></li>
 			</ul>
 		</nav>
 	</header>
