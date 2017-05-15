@@ -1,3 +1,96 @@
 * {
-	font-family: sans-serif;
+	font-family: 'Lato', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #151515;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+
+/* ***************Modificando el form de registro*************** */
+
+#register {
+	/*background-color: rgba(19, 35, 47, 0.9);*/
+	background-color: #99C1C4;
+}
+
+/*SignIn - SignUp*/
+
+.register-nav {
+	/*background-color: #F6F53C;*/
+	width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+
+    text-align: center;
+}
+
+.register-nav ul {
+	display: inline-block;
+
+	margin: 0;
+	padding: 0;
+}
+
+.register-nav ul li {
+	display: inline-block;
+	width: 90px;
+
+	background-color: #1ab188;
+    padding: 20px;
+
+	font-weight: bold;
+	text-transform: uppercase;;
+}
+
+.register-nav ul li a {
+	color: #fff;
+}
+
+.register-nav ul li.active {
+	background-color: #FBFBB1;
+}
+
+.register-nav ul li.active a {
+	color: #151515;
+}
+
+
+
+/*Form*/
+
+form {
+	clear: both;
+    padding: 0px 40px;
+    margin:40px auto;
+}
+
+fieldset {
+	border:none;
+	padding: 5px 0;
+}
+
+input.form-control {
+	width: 90%;
+    height: 28px;
+    background-color: rgba(19, 35, 47, 0);
+    padding: 5px 8px;
+    border: 1px solid #FBFBB1;
+}
+
+label {
+	font-size: 12px;
+    color: #676262;
+    font-weight: bold;
+
+    display: block;
+    width: 50%;
+    margin: 8px 0;
+    padding: 0 2px;
 }

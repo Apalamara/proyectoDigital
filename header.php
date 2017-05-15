@@ -3,10 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>OfficeGuru</title>
-	<!-- https://necolas.github.io/normalize.css/ -->
+	<!-- En W3C sugieren esta linea -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Css utilizados -->
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/register.css">
+	
+	
 </head>
 <body>
 	<header>

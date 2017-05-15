@@ -1,47 +1,51 @@
 <?php require_once('header.php'); ?>
 
-<main>
-	<section>
-		<h2>Quiero registrarme</h2>
-	</section>
+<main id="register">
+
+	<!--Botones de reigstro -->
+
+	<div class="register-nav">
+		<ul class="tab-group">
+			<li class="tab active"><a href="#signup">Sign Up</a></li>
+			<li class="tab"><a href="#login">Log In</a></li>
+		</ul>
+	</div>
 
 	<!--Empieza el form de registro -->
 
 	<form action="/" method="post" enctype="multipart/form-data">
 		<fieldset>
-			<div class="form-group">
+			<div class="form-group">		
+				<input type="text" name="full_name" class="form-control" id="full-name" placeholder="Mickey Mouse" value="">
 				<label for="full_name">Nombre y Apellido</label>
-				<input type="text" name="full_name" class="form-control" id="full-name" placeholder="Nombre y Apellido" value="">
 			</div>
 		</fieldset>
 
-		<!--<fieldset>
-			<div class="form-group">
-				<label for="company_name">Nombre de la empresa</label>
-				<input type="text" name="company_name" class="form-control" id="company-name" placeholder="Nombre de la empresa" value="">
-			</div>
-		</fieldset>-->
-
 		<fieldset>
 			<div class="form-group">
+				<input type="text" name="phone" class="form-control" id="phone" placeholder="+54 11 55257773" value="">
 				<label for="phone">+54 Teléfono</label>
-				<input type="text" name="phone" class="form-control" id="phone" placeholder="+54 Teléfono" value="">
-			</div>
-
-			<div class="form-group">
-				<label for="email">Email</label>
-				<input type="text" name="email" class="form-control" id="email" placeholder="Email" value="">
 			</div>
 		</fieldset>
 
 		<fieldset>
 			<div class="form-group">
-				<label for="password">Contraseña</label>
-				<input type="text" name="password" class="form-control" id="password" placeholder="Ingrese Contraseña">
+				<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="">
+				<label for="email">Email</label>
 			</div>
+		</fieldset>
+
+		<fieldset>
 			<div class="form-group">
-				<label for="password-confirm">Confirmar Contraseña</label>
+				<input type="text" name="password" class="form-control" id="password" placeholder="Ingrese Contraseña">
+				<label for="password">Contraseña</label>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="form-group">
 				<input type="text" name="password-confirm" class="form-control" id="password-confirm" placeholder="Confirmar Contraseña">
+				<label for="password-confirm">Confirmar Contraseña</label>
 			</div>
 		</fieldset>
 		
@@ -59,10 +63,10 @@
 		<input type="submit" name="btn-submit" class="btn" value="Registrarme">
 	</form>
 
-	<div>
+	<!--<div>
 		<span>¿Ya tenés una cuenta de Office Guru?</span>
 		<span><a href="login">Iniciar Sesión</a></span>
-	</div>
+	</div>-->
 </main>
 
 <?php require_once('footer.php'); ?>
