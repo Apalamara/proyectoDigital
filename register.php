@@ -7,7 +7,7 @@
 	<div class="register-nav">
 		<ul class="tab-group">
 			<li class="tab active"><a href="#signup">Sign Up</a></li>
-			<li class="tab"><a href="#login">Log In</a></li>
+			<li class="tab second"><a href="#login">Log In</a></li>
 		</ul>
 	</div>
 
@@ -37,36 +37,31 @@
 
 		<fieldset>
 			<div class="form-group">
-				<input type="text" name="password" class="form-control" id="password" placeholder="Ingrese Contraseña">
+				<input type="password" name="password" class="form-control" id="password" placeholder="Ingrese Contraseña">
 				<label for="password">Contraseña</label>
 			</div>
 		</fieldset>
 
 		<fieldset>
 			<div class="form-group">
-				<input type="text" name="password-confirm" class="form-control" id="password-confirm" placeholder="Confirmar Contraseña">
+				<input type="password" name="password-confirm" class="form-control" id="password-confirm" placeholder="Confirmar Contraseña">
 				<label for="password-confirm">Confirmar Contraseña</label>
 			</div>
 		</fieldset>
 		
 		<fieldset>	
 			<div class="checkbox">
-				<label for="terms">
+				<label for="terms" class="terms">
 					<input type="checkbox" id="terms" name="terms"> Acepto los términos y condiciones
 				</label>
 			</div>
-			<div>
+			<!--<div>
 				<span>Al hacer clic en Registrarme, acepto las Condiciones del servicio, las Condiciones sobre pagos, la política de Privacidad y de Cookies y la Política contra la discriminación de Office Guru.</span>
-			</div>
+			</div>-->
 		</fieldset>	
 
-		<input type="submit" name="btn-submit" class="btn" value="Registrarme">
+		<input type="submit" name="btn-submit" class="btn btn-register" value="Registrarme">
 	</form>
-
-	<!--<div>
-		<span>¿Ya tenés una cuenta de Office Guru?</span>
-		<span><a href="login">Iniciar Sesión</a></span>
-	</div>-->
 </main>
 
 <?php require_once('footer.php'); ?>
