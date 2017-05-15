@@ -19,7 +19,7 @@ ul li {
 
 
 
-/* ***************Modificando el form de registro*************** */
+/* ****************Register.php************** */
 
 #register {
 	background-color: #99C1C4;
@@ -42,7 +42,7 @@ ul li {
 .register-nav ul li {
     display: inline-block;
     width: 162px;
-    background-color: #151515;
+    background-color: #2C0337;
     padding: 18px;
     font-weight: bold;
     text-transform: uppercase;
@@ -119,4 +119,22 @@ label {
 	display: block;
 	width: 50%;
 	margin: auto;
+}
+
+
+/* ****************login.php************** */
+
+
+span.forgot-pass a {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 9px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #2C0337;
+}
+
+span.forgot-pass a:hover {
+	color:#FBFBB1;
 }

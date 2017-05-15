@@ -28,7 +28,7 @@
 		</fieldset>
 
 		<input type="submit" name="btn-submit" class="btn btn-register" value="Iniciar Sesión">
-		<span><a href="#login">Recuperar contraseña</a></span>
+		<span class="forgot-pass"><a href="#login">Recuperar contraseña</a></span>
 	</form>
 </main>
 <?php require_once('footer.php'); ?>
