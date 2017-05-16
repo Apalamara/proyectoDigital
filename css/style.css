@@ -3,6 +3,17 @@
 	font-family: 'Lato', sans-serif;
 }
 
+body { 
+  margin: 0;
+  padding: 24px 0 0;
+}
+
+h1 {}
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 a {
 	text-decoration: none;
 	color: #151515;
@@ -12,14 +23,133 @@ ul li {
 	list-style-type: none;
 }
 
+/* Helpers */
 
-/* ccs del index*/
-
-img {
-    border-style: none;
-    width: 100vw;
+/* https://css-tricks.com/snippets/css/clear-fix/ */
+.container:after,
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
+/* General Layout */
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav ul { 
+  padding: 0;
+  list-style-type: none;  
+}
+nav ul li { 
+  list-style-type: none;
+  text-transform: uppercase;
+}
+nav.horizontal ul li {
+  display: inline-block;
+}
+
+
+/************/
+/*  HEADER  */
+/************/
+
+header {
+  margin-bottom: 48px;
+}
+
+.menus { 
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+nav.social { float: right; }
+  nav.social ul li {}
+  nav.social ul li:after {}
+    nav.social ul li a {
+      display: block;
+      width: 28px;
+      height: 28px;
+      background-color: #151515;
+      text-align: center;
+      font-size: 14px;
+      line-height: 28px;
+      color: #FBFBB1;
+      border-radius: 50%;
+    }
+
+nav.main { 
+  float: right;
+  padding-left: 48px;
+}
+  nav.main ul li a {
+    padding: 6px;
+    border-radius: 6px;
+    line-height: 28px; 
+  }
+  nav.main ul li a:hover { 
+    background-color: #151515;
+    color: #FBFBB1;
+  }
+    nav.main ul li:after {
+      content: "|";
+      padding: 0 3px;
+    }
+    nav.main ul li:last-child:after { content: ""; }
+
+
+/************/
+/*  FOOTER  */
+/************/
+
+footer {
+  background-color: #151515;
+  color: white;
+  overflow: hidden;
+}
+
+footer a { color: white; }
+footer .copy { text-transform: uppercase; }
+
+
+/*********/
+/*  FAQ  */
+/*********/
+
+body.page-faq { background-color: #FBFBB1; }
+section.offices { background-color: white; }
+
+.question {
+  float: left;
+  width: 50%;
+  padding-left: 12px;
+}
+  .question h4 { 
+    text-transform: uppercase; 
+    font-weight: normal; 
+  }
+
+.office-list {}
+  .office-list .office {
+    float: left;
+    width: 25%;
+    padding-right: 12px;
+  }
+
+  .office-list .office img {
+    display: block;
+    width: 100%;
+  }
+
+ul.stars { padding: 0; }
+ul.stars li {
+  float: left;
+  list-style-type: none;
+}
 
 
 /* ****************Register.php************** */
