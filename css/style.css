@@ -3,6 +3,14 @@
 	font-family: 'Lato', sans-serif;
 }
 
+body { margin: 0; }
+
+h1 {}
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 a {
 	text-decoration: none;
 	color: #151515;
@@ -12,12 +20,58 @@ ul li {
 	list-style-type: none;
 }
 
+section { padding: 24px 0; }
 
+/* Helpers */
 
+/* https://css-tricks.com/snippets/css/clear-fix/ */
+.container:after,
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
+/* General Layout */
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+/*********/
+/*  FAQ  */
+/*********/
 
+body.page-faq { background-color: #FBFBB1; }
+section.offices { background-color: white; }
+
+.question {
+  float: left;
+  width: 50%;
+  padding-left: 12px;
+}
+  .question h4 { 
+    text-transform: uppercase; 
+    font-weight: normal; 
+  }
+
+.office-list {}
+  .office-list .office {
+    float: left;
+    width: 25%;
+    padding-right: 12px;
+  }
+
+  .office-list .office img {
+    display: block;
+    width: 100%;
+  }
+  
+ul.stars { padding: 0; }
+ul.stars li {
+  float: left;
+}
 
 /* ****************Register.php************** */
 
