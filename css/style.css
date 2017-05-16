@@ -1,31 +1,140 @@
 * {
-	font-family: sans-serif;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
 }
 
-/*INDEX CSS*/
-.container {
-	max-width: 1200px;
-	margin:0 auto;
-	position: relative;
+a {
+	text-decoration: none;
+	color: #151515;
 }
 
-.principal {
-	position: absolute;
-	background-image: url(img/bg-home.jpg);
-	background-attachment: fixed;
-}
-
-.main_titles {
-	top:30px;
-	margin-left:auto;
-}
-
-img {
-	max-width: 100%;
+ul li {
+	list-style-type: none;
 }
 
 
 
 
 
-/*END OF INDEX CSS*/
+
+
+
+/* ****************Register.php************** */
+
+#register {
+	background-color: #99C1C4;
+	padding: 15px 5px;
+}
+
+/*Botones SignIn - SignUp*/
+
+.register-nav {
+	/*background-color: #F6F53C;*/
+    text-align: center;
+}
+
+.register-nav ul {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.register-nav ul li {
+    display: inline-block;
+    width: 162px;
+    background-color: #2C0337;
+    padding: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.register-nav ul li.second {
+    margin-left: -2px;
+}
+
+.register-nav ul li a {
+	color: #fff;
+}
+
+.register-nav ul li.active {
+	background-color: #FBFBB1;
+}
+
+.register-nav ul li.active a {
+	color: #151515;
+}
+
+
+
+/*Form*/
+
+form {
+	clear: both;
+    margin: 15px auto;
+}
+
+fieldset {
+	border:none;
+}
+
+input.form-control {
+	width: 100%;
+    height: 36px;
+    background-color: rgba(19, 35, 47, 0);
+    border: 1px solid #FBFBB1;
+    padding: 0 5px;
+}
+
+label {
+	font-size: 12px;
+    color: #676262;
+    font-weight: bold;
+
+    display: block;
+    width: 50%;
+    margin: 8px 0;
+    padding: 0 2px;
+}
+
+.checkbox .terms{
+	width: auto;
+	font-size: 13px;
+}
+
+
+/*Btn de registro*/
+
+.btn {
+  border:0;
+  border-radius: 5px;
+  outline:none;
+  padding:15px 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2C0337;
+}
+
+.btn-register {
+	display: block;
+	width: 50%;
+	margin: auto;
+}
+
+
+/* ****************login.php************** */
+
+
+span.forgot-pass a {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 9px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #2C0337;
+}
+
+span.forgot-pass a:hover {
+	color:#FBFBB1;
+}
