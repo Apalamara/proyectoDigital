@@ -1,6 +1,45 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Office Gurú
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+ /**
+ * Guía de estilo:
+ * ~~~~~~~~~~~~~~
+ * https://github.com/necolas/idiomatic-css
+ * https://css-tricks.com/css-style-guides/
+ *
+ * Colores:
+ * ~~~~~~~~
+ * - Amarillo claro   #FBFBB1 (Fondo faq)
+ * - Amarillo medio   #F6F53C (Botones)
+ * - Amarillo oscuro  #C1BD2F (Borde botones)
+ * - Celeste          #99C1C4 (Fondo registro, botones) 
+ * - Violeta          #2C0337 (Texto, botones)
+ * - Gris claro       #828282 (Fondo registro)
+ * - Gris oscuro      #D8D8D8 (Botones)
+ * - Negro            #151515 (Texto, fondo footer)
+*/
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Main elements 
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/** 
+ * Aplica a elementos en todo el sitio, acá se estilan elementos de uso 
+ * frecuente como:
+ * - Encabezados (h1 ... h6)
+ * - Párrafos
+ * - Listas
+ * - Etc...
+ */
+
 * {
 	box-sizing: border-box;
 	font-family: 'Lato', sans-serif;
+  /* Transiciones de medio segundo para todos los efectos
+   * https://css-tricks.com/almanac/properties/t/transition/ */
+  transition: all 0.5s ease-out;
 }
 
 body { 
@@ -13,6 +52,10 @@ h2 {
   text-align: center;
   text-transform: uppercase;
 }
+h3 {}
+h4 {}
+h5 {}
+h6 {}
 
 a {
 	text-decoration: none;
@@ -23,17 +66,18 @@ ul li {
 	list-style-type: none;
 }
 
-/* Helpers */
-
-/* https://css-tricks.com/snippets/css/clear-fix/ */
-.container:after,
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
+section {
+  padding: 24px 0 48px;
 }
 
-/* General Layout */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Layout
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+ /**
+ * Acá van todos los estilos de contendores, menúes y sistemas de grilla
+ */
 
 .container {
   position: relative;
@@ -54,19 +98,51 @@ nav.horizontal ul li {
 }
 
 
-/************/
-/*  HEADER  */
-/************/
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Helpers
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/**
+ * Estos son estilos que pueden aplicarse a un elemento para obtener un efecto determinado
+ * - Flotar
+ * - Ocultar
+ * - Centrar
+ * - Cambiar tamaño de fuente
+*/
+
+/* Hace que los contenedores ocupen todo el espacio aunque sus hijos estén flotados
+ * https://css-tricks.com/snippets/css/clear-fix/ */
+.container:after,
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Pages
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/**
+ * Aquí van los estilos específicos de cada página. Todos los elementos que 
+ * puedan reutilizarse o que se repitan deben ir en Layout.
+ */
+
+/* Header
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 header {
   margin-bottom: 48px;
 }
 
+/* Menu bars */
 .menus { 
   position: absolute;
   top: 0;
   right: 0;
 }
+
 nav.social { float: right; }
   nav.social ul li {}
   nav.social ul li:after {}
@@ -101,10 +177,8 @@ nav.main {
     }
     nav.main ul li:last-child:after { content: ""; }
 
-
-/************/
-/*  FOOTER  */
-/************/
+/* Footer
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 footer {
   background-color: #151515;
@@ -115,10 +189,26 @@ footer {
 footer a { color: white; }
 footer .copy { text-transform: uppercase; }
 
+/* Home
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-/*********/
-/*  FAQ  */
-/*********/
+.principal {
+  position: absolute;
+  background-image: url(img/bg-home.jpg);
+  background-attachment: fixed;
+}
+
+.main_titles {
+  top:30px;
+  margin-left:auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* FAQ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.page-faq { background-color: #FBFBB1; }
 section.offices { background-color: white; }
@@ -151,25 +241,25 @@ ul.stars li {
   list-style-type: none;
 }
 
-
-/* ****************Register.php************** */
+/* Register
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #register {
 	background-color: #99C1C4;
 	padding: 15px 5px;
 }
 
-/*Botones SignIn - SignUp*/
+/* Botones SignIn - SignUp */
 
 .register-nav {
-	/*background-color: #F6F53C;*/
-    text-align: center;
+  /*background-color: #F6F53C;*/
+  text-align: center;
 }
 
 .register-nav ul {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }
 
 .register-nav ul li {
@@ -197,9 +287,9 @@ ul.stars li {
 	color: #151515;
 }
 
+/* Forms */
 
-
-/*Form*/
+/* TODO: mover el código reutilizable a Layout */
 
 form {
 	clear: both;
@@ -234,9 +324,7 @@ label {
 	font-size: 13px;
 }
 
-
-/*Btn de registro*/
-
+/* Btn de registro*/
 .btn {
   border:0;
   border-radius: 5px;
@@ -254,9 +342,8 @@ label {
 	margin: auto;
 }
 
-
-/* ****************login.php************** */
-
+/* Login
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 span.forgot-pass a {
     display: block;
