@@ -15,16 +15,25 @@
 <body <?php echo getClasses() ?>>
 	<header>
 		<div class="container">
-			<section>
-				<h1>OfficeGuru</h1>
-			</section>
-			<nav>
-				<ul>
-					<li><a href="index.php">Home</a></li>
-					<li><a href="login.php">Log In</a></li>
-					<li><a href="register.php">Registro</a></li>
-					<li><a href="faq.php">Faq</a></li>
-				</ul>
-			</nav>
+			<h1 class="logo">OfficeGuru</h1>
+			<div class="menus group">			
+				<nav class="main horizontal">
+					<ul>
+						<li><a href="index.php">Inicio</a></li>
+						<li><a href="login.php">Preguntas</a></li>
+						<li><a href="register.php">Conviértete en anfitrión</a></li>
+						<li><a href="faq.php">Regístrate</a></li>
+						<li><a href="faq.php">Iniciar sesión</a></li>
+					</ul>
+				</nav>
+				<nav class="social horizontal">
+					<ul>
+						<li><a href="">FB</a></li>
+						<li><a href="">IG</a></li>
+						<li><a href="">TW</a></li>
+						<li><a href="">YT</a></li>
+					</ul>
+				</nav>
+			</div>
 		</div>
 	</header>
