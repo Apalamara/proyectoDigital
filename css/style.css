@@ -198,7 +198,7 @@ footer .copy { text-transform: uppercase; }
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.page-faq { background-color: #FBFBB1; }
-section.offices { background-color: white; }
+body.page-faq section.offices { background-color: white; }
 
 .question {
   float: left;

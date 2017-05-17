@@ -1,4 +1,3 @@
-<?php // require_once('functions.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style-home.css">
 </head>
-<body <?php // echo getClasses() ?> class="page-home">
+<body class="<?php echo (isset($bodyClass) ? $bodyClass : ''); ?>">
 	<header>
 		<div class="container">
 			<h1 class="logo">OfficeGuru</h1>

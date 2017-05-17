@@ -1,3 +1,4 @@
+<?php $bodyClass = 'page-home'; ?>
 <?php require_once('header.php'); ?>
 <main class="container">
 	<section class="principal">

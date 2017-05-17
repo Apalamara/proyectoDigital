@@ -1,4 +1,4 @@
-<?php $bodyClasses[] = 'page-faq'; ?>
+<?php $bodyClass = 'page-faq' ?>
 <?php require_once('header.php'); ?>
 <main>
 	<section class="questions">
