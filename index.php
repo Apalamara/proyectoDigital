@@ -9,9 +9,9 @@
 		</div>
 		<div class="button">Iniciar Sesión</div>
 		<form name="ejemplo" action="#" method="POST">
-	¿Dónde? <input type="search" name="busqueda"><br>
-	<input type="submit" value="Enviar">
-</form>
+			¿Dónde? <input type="search" name="busqueda"><br>
+			<input type="submit" value="Enviar">
+		</form>
 	</section>
 	<section class="products">
 		<div class="titles">
