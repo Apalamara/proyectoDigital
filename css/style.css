@@ -39,7 +39,7 @@
 	font-family: 'Lato', sans-serif;
   /* Transiciones de medio segundo para todos los efectos
    * https://css-tricks.com/almanac/properties/t/transition/ */
-  transition: all 0.5s ease-out;
+  /* transition: all 0.5s ease-out; */
 }
 
 body { 
@@ -192,20 +192,7 @@ footer .copy { text-transform: uppercase; }
 /* Home
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-.principal {
-  position: absolute;
-  background-image: url(img/bg-home.jpg);
-  background-attachment: fixed;
-}
 
-.main_titles {
-  top:30px;
-  margin-left:auto;
-}
-
-img {
-  max-width: 100%;
-}
 
 /* FAQ
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

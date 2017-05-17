@@ -1,4 +1,4 @@
-<?php require_once('functions.php'); ?>
+<?php // require_once('functions.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +11,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style-home.css">
 </head>
-<body <?php echo getClasses() ?>>
+<body <?php // echo getClasses() ?> class="page-home">
 	<header>
 		<div class="container">
 			<h1 class="logo">OfficeGuru</h1>

@@ -2,7 +2,6 @@
 <main class="container">
 	<section class="principal">
 		<div class="main_titles">
-			<img src="img/bg-home.jpg">
 			<h2>LOREM IPSUM</h2>
 			<h3>DOLOR SIT AMET LOREM IPSUM</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ab reiciendis sint ea nam enim. Perspiciatis iusto, animi voluptatibus. Unde blanditiis nobis nisi atque at pariatur provident consequatur voluptatum adipisci.</p>

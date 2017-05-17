@@ -1,0 +1,15 @@
+/*PRUEBA*/
+
+body.page-home {
+  background: url('../img/bg-home.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.main_titles {
+  margin-left:auto;
+}
+
+.product {
+	float: left;
+}
