@@ -28,10 +28,11 @@
 				</nav>
 				<nav class="social horizontal">
 					<ul>
-						<li><a href="">FB</a></li>
-						<li><a href="">IG</a></li>
-						<li><a href="">TW</a></li>
-						<li><a href="">YT</a></li>
+						<li><a href="https://facebook.com" target="_blank"><i class="icon-facebook"></i></a></li>
+						<li><a href="https://twitter.com" target="_blank"><i class="icon-twitter"></i></a></li>
+						<li><a href="https://linkedin.com" target="_blank"><i class="icon-linkedin"></i></a></li>
+						<li><a href="https://instagram.com" target="_blank"><i class="icon-instagram"></i></a></li>
+						<li><a href="https://youtube.com" target="_blank"><i class="icon-youtube"></i></a></li>
 					</ul>
 				</nav>
 			</div>
