@@ -158,15 +158,17 @@ nav.horizontal ul li {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-lock:before      { content: "\e800"; }
-.icon-clock:before     { content: "\e801"; }
-.icon-check:before     { content: "\e802"; }
-.icon-twitter:before   { content: "\f099"; }
-.icon-facebook:before  { content: "\f09a"; }
-.icon-mail-alt:before  { content: "\f0e0"; }
-.icon-linkedin:before  { content: "\f0e1"; }
-.icon-youtube:before   { content: "\f167"; }
-.icon-instagram:before { content: "\f16d"; }
+.icon-lock:before { content: '\e800'; }
+.icon-clock:before { content: '\e801'; }
+.icon-check:before { content: '\e802'; }
+.icon-star:before { content: '\e803'; }
+.icon-star-half:before { content: '\e804'; }
+.icon-twitter:before { content: '\f099'; }
+.icon-facebook:before { content: '\f09a'; }
+.icon-mail-alt:before { content: '\f0e0'; }
+.icon-linkedin:before { content: '\f0e1'; }
+.icon-youtube:before { content: '\f167'; }
+.icon-instagram:before { content: '\f16d'; }
 
 .animate-spin {
   animation: spin 2s infinite linear;
