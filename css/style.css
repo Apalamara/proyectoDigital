@@ -270,6 +270,9 @@ footer .copy { text-transform: uppercase; }
 
 body.page-faq { background-color: #FBFBB1; }
 body.page-faq section.offices { background-color: white; }
+body.page-faq .menu-item-faq a {
+  border-bottom: 3px solid #151515;
+}
 
 .question {
   float: left;

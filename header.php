@@ -15,15 +15,14 @@
 <body class="<?php echo (isset($bodyClass) ? $bodyClass : ''); ?>">
 	<header>
 		<div class="container">
-			<h1 class="logo">OfficeGuru</h1>
+			<h1 class="logo"><a href="index.php">OfficeGuru</a></h1>
 			<div class="menus group">			
 				<nav class="main horizontal">
 					<ul>
-						<li><a href="index.php">Inicio</a></li>
-						<li><a href="faq.php">Preguntas</a></li>
-						<li><a href="register.php">Conviértete en anfitrión</a></li>
-						<li><a href="register.php">Regístrate</a></li>
-						<li><a href="login.php">Iniciar sesión</a></li>
+						<li class="menu-item-host"><a href="register.php">Conviértete en anfitrión</a></li>
+						<li class="menu-item-faq"><a href="faq.php">FAQ</a></li>
+						<li class="menu-item-register"><a href="register.php">Regístrate</a></li>
+						<li class="menu-item-login"><a href="login.php">Iniciar sesión</a></li>
 					</ul>
 				</nav>
 				<nav class="social horizontal">
