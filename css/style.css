@@ -119,6 +119,77 @@ nav.horizontal ul li {
   clear: both;
 }
 
+/**
+ * Fuente para iconos 
+ * http://fontello.com/
+ */
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot?39905452');
+  src: url('../fonts/fontello.eot?39905452#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff2?39905452') format('woff2'),
+       url('../fonts/fontello.woff?39905452') format('woff'),
+       url('../fonts/fontello.ttf?39905452') format('truetype'),
+       url('../fonts/fontello.svg?39905452#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+     
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  display: inline-block;
+  width: 1em;
+
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  text-decoration: inherit;
+  speak: none;
+  
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lock:before { content: '\e800'; }
+.icon-clock:before { content: '\e801'; }
+.icon-check:before { content: '\e802'; }
+.icon-star:before { content: '\e803'; }
+.icon-star-half:before { content: '\e804'; }
+.icon-twitter:before { content: '\f099'; }
+.icon-facebook:before { content: '\f09a'; }
+.icon-mail-alt:before { content: '\f0e0'; }
+.icon-linkedin:before { content: '\f0e1'; }
+.icon-youtube:before { content: '\f167'; }
+.icon-instagram:before { content: '\f16d'; }
+
+.animate-spin {
+  animation: spin 2s infinite linear;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Pages
@@ -199,6 +270,9 @@ footer .copy { text-transform: uppercase; }
 
 body.page-faq { background-color: #FBFBB1; }
 body.page-faq section.offices { background-color: white; }
+body.page-faq .menu-item-faq a {
+  border-bottom: 3px solid #151515;
+}
 
 .question {
   float: left;

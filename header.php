@@ -15,24 +15,24 @@
 <body class="<?php echo (isset($bodyClass) ? $bodyClass : ''); ?>">
 	<header>
 		<div class="container">
-			<h1 class="logo">OfficeGuru</h1>
+			<h1 class="logo"><a href="index.php">OfficeGuru</a></h1>
 			<img class="hamburguesa" src="img/menu.png">
 			<div class="menus group">			
 				<nav class="main horizontal">
 					<ul>
-						<li><a href="index.php">Inicio</a></li>
-						<li><a href="login.php">Preguntas</a></li>
-						<li><a href="register.php">Conviértete en anfitrión</a></li>
-						<li><a href="faq.php">Regístrate</a></li>
-						<li><a href="faq.php">Iniciar sesión</a></li>
+						<li class="menu-item-host"><a href="register.php">Conviértete en anfitrión</a></li>
+						<li class="menu-item-faq"><a href="faq.php">FAQ</a></li>
+						<li class="menu-item-register"><a href="register.php">Regístrate</a></li>
+						<li class="menu-item-login"><a href="login.php">Iniciar sesión</a></li>
 					</ul>
 				</nav>
 				<nav class="social horizontal">
 					<ul>
-						<li><a href="">FB</a></li>
-						<li><a href="">IG</a></li>
-						<li><a href="">TW</a></li>
-						<li><a href="">YT</a></li>
+						<li><a href="https://facebook.com" target="_blank"><i class="icon-facebook"></i></a></li>
+						<li><a href="https://twitter.com" target="_blank"><i class="icon-twitter"></i></a></li>
+						<li><a href="https://linkedin.com" target="_blank"><i class="icon-linkedin"></i></a></li>
+						<li><a href="https://instagram.com" target="_blank"><i class="icon-instagram"></i></a></li>
+						<li><a href="https://youtube.com" target="_blank"><i class="icon-youtube"></i></a></li>
 					</ul>
 				</nav>
 			</div>
