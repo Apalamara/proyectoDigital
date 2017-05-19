@@ -16,6 +16,7 @@
 	<header>
 		<div class="container">
 			<h1 class="logo">OfficeGuru</h1>
+			<img class="hamburguesa" src="img/menu.png">
 			<div class="menus group">			
 				<nav class="main horizontal">
 					<ul>
