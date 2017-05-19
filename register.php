@@ -2,18 +2,22 @@
 
 <main id="register">
 
-	<!--Botones de reigstro -->
+	<!--Botones de registro 
 
 	<div class="register-nav">
 		<ul class="tab-group">
-			<li class="tab active"><a href="#signup">Sign Up</a></li>
-			<li class="tab second"><a href="#login">Log In</a></li>
+			<li class="tab active"><a href="register.php">Sign Up</a></li>
+			<li class="tab second"><a href="login.php">Log In</a></li>
 		</ul>
+	</div>  -->
+
+	<div class="register-nav">
+		<span>Quiero registrarme</span>
 	</div>
 
 	<!--Empieza el form de registro -->
 
-	<form action="/" method="post" enctype="multipart/form-data">
+	<form action="/" method="get" enctype="multipart/form-data">
 		<fieldset>
 			<div class="form-group">		
 				<input type="text" name="full_name" class="form-control" id="full-name" placeholder="Mickey Mouse" value="">
@@ -24,7 +28,7 @@
 		<fieldset>
 			<div class="form-group">
 				<input type="text" name="phone" class="form-control" id="phone" placeholder="+54 11 55257773" value="">
-				<label for="phone">+54 Teléfono</label>
+				<label for="phone">Teléfono</label>
 			</div>
 		</fieldset>
 

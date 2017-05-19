@@ -1,18 +1,22 @@
 <?php require_once('header.php'); ?>
 <main id="register">
 
-	<!--Botones de reigstro -->
+	<!--Botones de reigstro 
 
 	<div class="register-nav">
 		<ul class="tab-group">
-			<li class="tab second"><a href="#signup">Sign Up</a></li>
-			<li class="tab active"><a href="#login">Log In</a></li>
+			<li class="tab second"><a href="register.php">Sign Up</a></li>
+			<li class="tab active"><a href="login.php">Log In</a></li>
 		</ul>
+	</div> -->
+
+	<div class="register-nav">
+		<span>Iniciar sesión</span>
 	</div>
 
 	<!--Empieza el form de registro -->
 
-	<form action="/" method="post" enctype="multipart/form-data">
+	<form action="/" method="get" enctype="multipart/form-data">
 		<fieldset>
 			<div class="form-group">
 				<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="">
