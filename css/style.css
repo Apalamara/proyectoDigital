@@ -73,13 +73,13 @@ a {
 	color: #151515;
 }
 
-ul li {
-	list-style-type: none;
-}
+ul li { list-style-type: none; }
 
-section {
-  padding: 24px 0 48px;
-}
+section { padding: 24px 0 48px; }
+
+/* Forms */
+
+input[type="submit"] { cursor: pointer; }
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
