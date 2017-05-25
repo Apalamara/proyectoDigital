@@ -1,3 +1,4 @@
+<?php $bodyClass = 'page-register' ?>
 <?php require_once('header.php'); ?>
 
 <main id="register">
