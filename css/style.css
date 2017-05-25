@@ -638,8 +638,8 @@ form {
   }
 }
 
-fieldset {
-	border:none;
+.form-control {
+	position: relative;
 }
 
 input.form-control {
@@ -648,6 +648,12 @@ input.form-control {
   background-color: #FBFBB1;
   border: 1px solid #FBFBB1;
   padding: 0 5px;
+}
+
+.form-group i {
+  position: absolute;
+  top:12px;
+  left:12px;
 }
 
 label {

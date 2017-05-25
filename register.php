@@ -9,32 +9,34 @@
 			<h2>Quiero registrarme</h2>
 
 			<!--Empieza el form de registro -->
+			<!--Tengo que agregar un div container del form -->
 
-			<form action="/" method="get" enctype="multipart/form-data">
+			<form action="" method="post">
 
 				
 					<div class="form-group">
-						<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="">
+						<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="" required="required">
+						<!--<i class="icon-mail-alt"></i>-->
 						<label for="email">Email</label>
 					</div>
 
 					<div class="form-group">		
-						<input type="text" name="first_name" class="form-control" id="first_name" placeholder="Jose" value="">
+						<input type="text" name="first_name" class="form-control" id="first_name" placeholder="Jose" value="" required="required">
 						<label for="first_name">Nombre</label>
 					</div>
 
 					<div class="form-group">		
-						<input type="text" name="last_name" class="form-control" id="last_name" placeholder="Canseco" value="">
+						<input type="text" name="last_name" class="form-control" id="last_name" placeholder="Canseco" value="" required="required">
 						<label for="last_name">Apellido</label>
 					</div>
 			
 					<div class="form-group">
-						<input type="password" name="pass" class="form-control" id="password" placeholder="Ingrese Contraseña">
+						<input type="password" name="pass" class="form-control" id="password" placeholder="Ingrese Contraseña" required="required">
 						<label for="password">Contraseña</label>
 					</div>
 
 					<div class="form-group">
-						<input type="password" name="pass_confirm" class="form-control" id="pass_confirm" placeholder="Confirmar Contraseña">
+						<input type="password" name="pass_confirm" class="form-control" id="pass_confirm" placeholder="Confirmar Contraseña" required="required">
 						<label for="pass_confirm">Confirmar Contraseña</label>
 					</div>
 
