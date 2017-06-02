@@ -34,74 +34,84 @@
 		<div class="container">
 			<h2>Oficinas destacadas</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas officia atque aut deserunt qui tenetur maiores odio quibusdam eum, distinctio nostrum consequatur accusantium quaerat ullam laudantium fugit ducimus debitis illum.</p>
-			<div class="office-list">
-				<article class="office">
-					<img src="http://placehold.it/200x200" alt="">
-					<p class="desc">
-						<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<ul class="stars">
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star-half"></i></li>
-						<li>1 evaluación</li>
-					</ul>
-				</article>
-				<article class="office">
-					<img src="http://placehold.it/300x300" alt="">
-					<p class="desc">
-						<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<ul class="stars">
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star-half"></i></li>
-						<li>1 evaluación</li>
-					</ul>
-				</article>
-				<article class="office">
-					<img src="http://placehold.it/300x300" alt="">
-					<p class="desc">
-						<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<ul class="stars">
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star-half"></i></li>
-						<li>1 evaluación</li>
-					</ul>
-				</article>
-				<article class="office">
-					<img src="http://placehold.it/300x300" alt="">
-					<p class="desc">
-						<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<ul class="stars">
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star-half"></i></li>
-						<li>1 evaluación</li>
-					</ul>
-				</article>
-								<article class="office">
-					<img src="http://placehold.it/300x300" alt="">
-					<p class="desc">
-						<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<ul class="stars">
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star"></i></li>
-						<li><i class="icon-star-half"></i></li>
-						<li>1 evaluación</li>
-					</ul>
-				</article>
+			<div class="row office-list">
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<article class="office">
+						<img src="http://placehold.it/200x200" alt="">
+						<p class="desc">
+							<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</p>
+						<ul class="stars">
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star-half"></i></li>
+							<li>1 evaluación</li>
+						</ul>
+					</article>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<article class="office">
+						<img src="http://placehold.it/300x300" alt="">
+						<p class="desc">
+							<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</p>
+						<ul class="stars">
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star-half"></i></li>
+							<li>1 evaluación</li>
+						</ul>
+					</article>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<article class="office">
+						<img src="http://placehold.it/300x300" alt="">
+						<p class="desc">
+							<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</p>
+						<ul class="stars">
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star-half"></i></li>
+							<li>1 evaluación</li>
+						</ul>
+					</article>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<article class="office">
+						<img src="http://placehold.it/300x300" alt="">
+						<p class="desc">
+							<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</p>
+						<ul class="stars">
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star-half"></i></li>
+							<li>1 evaluación</li>
+						</ul>
+					</article>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<article class="office">
+						<img src="http://placehold.it/300x300" alt="">
+						<p class="desc">
+							<strong>$2.342 ARS</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</p>
+						<ul class="stars">
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star"></i></li>
+							<li><i class="icon-star-half"></i></li>
+							<li>1 evaluación</li>
+						</ul>
+					</article>
+				</div>
 			</div>
 		</div>
 	</section>
