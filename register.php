@@ -41,7 +41,7 @@
 
 			<!--Empieza el form de registro -->
 
-			<form action="" method="post">
+			<form class="form-register" action="" method="post">
 
 				
 					<div class="form-group">

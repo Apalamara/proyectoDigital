@@ -16,7 +16,7 @@
 
 	<!--Empieza el form de registro -->
 
-	<form action="/" method="get" enctype="multipart/form-data">
+	<form class="form-login" action="/" method="get" enctype="multipart/form-data">
 		<fieldset>
 			<div class="form-group">
 				<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="">
