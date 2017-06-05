@@ -389,18 +389,20 @@ nav.menu-main {
   padding-left: 48px;
 }
   nav.menu-main ul li a {
-    padding: 6px;
-    border-radius: 6px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 14px;
     line-height: 28px;
-    font-size: 13px; 
+    font-weight: bold;
+    border-radius: 6px;
   }
   nav.menu-main ul li a:hover { 
     background-color: #151515;
-    color: #FBFBB1;
   }
     nav.menu-main ul li:after {
       content: "|";
       padding: 0 3px;
+      color: white;
     }
     nav.menu-main ul li:last-child:after { content: ""; }
 
@@ -465,6 +467,20 @@ footer .copy {
 /* Home
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+.video-container {
+  display: none;
+  position: absolute;
+  height: 500px;
+  z-index: -1
+}
+
+/* Center video vertically to the container. https://stackoverflow.com/a/28634830 */
+.video-container video {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 body.page-home {
   background: url('../img/bg-home.jpg');
   background-repeat: no-repeat;
@@ -473,22 +489,41 @@ body.page-home {
 
 body.page-home .search { }
 
-body.page-home .search .container { text-align: center; }
+body.page-home .search .search-container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 0 12px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 6px;
+}
+body.page-home .search h2 {
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding: .5em;
+
+}
 
 body.page-home .search input,
 body.page-home .search select { 
   width: 100%;
   margin: 0 0 12px;
+  border: 1px solid #151515;
 }
 
 body.page-home .offices { background-color: white; }
 
 @media (max-width: 768px) {}
 @media (min-width: 769px) {
+  body.page-home .video-container { display: block; }
   body.page-home .search input,
   body.page-home .search select { 
-    width: 40%;
+    width: 48%;
     margin: 0 0 12px 0;
+  }
+  body.page-home .search select {
+    margin-right: 12px;
   }
 }
 
@@ -496,10 +531,9 @@ body.page-home .offices { background-color: white; }
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.page-faq { background-color: #FBFBB1; }
-
-@media (max-width: 768px) {}
-@media (min-width: 769px) and (max-width: 1024px) {}
-@media (min-width: 1025px) {}
+body.page-faq nav.menu-main ul li a,
+body.page-faq nav.menu-main ul li:after { color: #151515; }
+body.page-faq nav.menu-main ul li a:hover { color: white; }
 
 body.page-faq section.offices { background-color: white; }
 body.page-faq .menu-item-faq a {
@@ -517,6 +551,9 @@ body.page-faq .menu-item-faq a {
     font-weight: normal; 
   }
 
+@media (max-width: 768px) {}
+@media (min-width: 769px) and (max-width: 1024px) {}
+@media (min-width: 1025px) {}
 
 /* Register
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

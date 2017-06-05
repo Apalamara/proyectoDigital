@@ -12,7 +12,12 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body class="<?php echo (isset($bodyClass) ? $bodyClass : ''); ?>">
-	<header>
+	<div class="video-container">
+		<video id="bgVideo" controls preload="true" autoplay loop muted>
+			<source src="img/office-bg.mp4" type="video/mp4" > 
+		</video>
+	</div>
+	<header>	
 		<div class="container group">
 			<div class="row">
 				<div class="col-12">
