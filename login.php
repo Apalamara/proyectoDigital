@@ -5,7 +5,7 @@
 		<div class="container">
 			<h2 class="p-left p-right">Iniciar Sesión</h2>
 			<div class="legal-text">
-				<h4>¿Todavía no formás parte? <br/> <a href="login.php">Creá tu cuenta</a></h4>
+				<h4>¿Todavía no formás parte? <br/> <a href="register.php">Creá tu cuenta</a></h4>
 			</div>
 			<!--Empieza el form de registro -->
 			<div class="p-left p-right p-half-top">
