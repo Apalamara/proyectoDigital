@@ -1,38 +1,38 @@
 <?php require_once('header.php'); ?>
-<main id="register">
 
-	<!--Botones de reigstro 
-
-	<div class="register-nav">
-		<ul class="tab-group">
-			<li class="tab second"><a href="register.php">Sign Up</a></li>
-			<li class="tab active"><a href="login.php">Log In</a></li>
-		</ul>
-	</div> -->
-
-	<div class="register-nav">
-		<span>Iniciar sesión</span>
-	</div>
-
-	<!--Empieza el form de registro -->
-
-	<form class="form-login" action="/" method="get" enctype="multipart/form-data">
-		<fieldset>
-			<div class="form-group">
-				<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="">
-				<label for="email">Email</label>
+<main>
+	<section id="register">
+		<div class="container">
+			<h2 class="p-left p-right">Iniciar Sesión</h2>
+			<div class="legal-text">
+				<h4>¿Todavía no formás parte? <br/> <a href="login.php">Creá tu cuenta</a></h4>
 			</div>
-		</fieldset>
+			<!--Empieza el form de registro -->
+			<div class="p-left p-right p-half-top">
+				<form class="form-login" action="/" method="get" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="">
+						</div>
 
-		<fieldset>
-			<div class="form-group">
-				<input type="password" name="password" class="form-control" id="password" placeholder="Ingrese Contraseña">
-				<label for="password">Contraseña</label>
+						<div class="form-group">
+							<label for="password">Contraseña</label>
+							<input type="password" name="password" class="form-control" id="password" placeholder="Ingrese Contraseña">
+						</div>
+
+					<label for="terms" class="terms"><input type="checkbox" id="newsletter" name="newsletter"> Recordarme</label>
+
+					<input type="submit" name="btn-submit" class="btn btn-register" value="Iniciar Sesión">
+
+					<div class="legal-text">
+						<p><a href="#login">Recuperar contraseña</a></p>
+					</div>
+				</form>
 			</div>
-		</fieldset>
-
-		<input type="submit" name="btn-submit" class="btn btn-register" value="Iniciar Sesión">
-		<span class="forgot-pass"><a href="#login">Recuperar contraseña</a></span>
-	</form>
+		</div>
+	</section>
 </main>
+
+
+
 <?php require_once('footer.php'); ?>

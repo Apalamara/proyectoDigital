@@ -23,62 +23,67 @@
 	// echo '<pre>' . print_r ($_POST, true) . '</pre>';
 ?>
 
-<main id="register">
-
-	<section>
+<main>
+	<section id="register">
 		<div class="container">
 
-			<h2>Quiero registrarme</h2>
+			<h2 class="p-left p-right">Registrate ahora y empezá a trabajar desde donde quieras</h2>
+			<div class="legal-text">
+				<h4>¿Ya tenés cuenta? <a href="login.php">Iniciá Sesión</a></h4>
+			</div>
 
 			<?php
-			if($errors) { ?>
-				<div class="alert alert-danger">
-				<?php foreach($errors as $error) {
-					echo $error . '<br>';
-				}?>
-				</div>
+				if($errors) { ?>
+					<div class="alert alert-danger">
+					<?php foreach($errors as $error) {
+						echo $error . '<br>';
+					}?>
+					</div>
 			<?php } ?>
 
-			<!--Empieza el form de registro -->
+			<div class="p-left p-right p-half-top">
+				<!--Empieza el form de registro -->
+				<form class="form-register" action="" method="post">
 
-			<form class="form-register" action="" method="post">
-
-				
 					<div class="form-group">
-						<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="<?php echo $email; ?>">
-						<!--<i class="icon-mail-alt"></i>-->
 						<label for="email">Email</label>
+						<input type="email" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="<?php echo $email; ?>">
+						<!--<i class="icon-mail-alt"></i>-->
 					</div>
 
 					<div class="form-group">		
-						<input type="text" name="first_name" class="form-control" id="first_name" placeholder="Jose" value="<?php echo $firstName; ?>">
 						<label for="first_name">Nombre</label>
+						<input type="text" name="first_name" class="form-control" id="first_name" placeholder="Jose" value="<?php echo $firstName; ?>">
 					</div>
 
+
 					<div class="form-group">		
-						<input type="text" name="last_name" class="form-control" id="last_name" placeholder="Canseco" value="<?php echo $lastName; ?>">
 						<label for="last_name">Apellido</label>
+						<input type="text" name="last_name" class="form-control" id="last_name" placeholder="Canseco" value="<?php echo $lastName; ?>">
 					</div>
 			
 					<div class="form-group">
-						<input type="password" name="pass" class="form-control" id="password" placeholder="Ingrese Contraseña">
 						<label for="password">Contraseña</label>
+						<input type="password" name="pass" class="form-control" id="password" placeholder="Ingrese Contraseña">
 					</div>
 
 					<div class="form-group">
-						<input type="password" name="pass_confirm" class="form-control" id="pass_confirm" placeholder="Confirmar Contraseña">
 						<label for="pass_confirm">Confirmar Contraseña</label>
+						<input type="password" name="pass_confirm" class="form-control" id="pass_confirm" placeholder="Confirmar Contraseña">
 					</div>
 
-					<div class="checkbox">
-						<label for="terms" class="terms">
+					<input type="submit" class="btn btn-register" value="Registrarme">
+
+					<div class="legal-text">
+						<!-- <label for="terms" class="terms">
 							<input type="checkbox" id="newsletter" name="newsletter"> Me gustaría recibir cupones, promociones, encuestas y actualizaciones por correo electrónico sobre OfficeGuru y sus socios.
-						</label>
-						<p>Al hacer clic en Registrarme, acepto las Condiciones del servicio, las Condiciones sobre pagos, la política de Privacidad y de Cookies y la Política contra la discriminación de Office Guru.</p>
+						</label> -->
+						<p>Al hacer clic en Registrarme, acepto los <a href="#" target="_blank">términos y condiciones del servicio.</a></p>
 					</div>
 
-				<input type="submit" class="btn btn-register" value="Registrarme">
-			</form>
+					
+				</form>
+			</div>
 
 		</div>
 	</section>

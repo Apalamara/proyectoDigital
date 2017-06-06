@@ -17,17 +17,20 @@
 					<div class="module">col-6</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-3">
+			<div class="row row-no-pad">
+				<div class="col-sm-12 col-md-6 col-lg-2">
 					<div class="module">col-3</div>
 				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
+				<div class="col-sm-12 col-md-6 col-lg-2">
 					<div class="module">col-3</div>
 				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
+				<div class="col-sm-12 col-md-6 col-lg-2">
 					<div class="module">col-3</div>
 				</div>
-				<div class="col-sm-12 col-md-6 col-lg-3">
+				<div class="col-sm-12 col-md-6 col-lg-2">
+					<div class="module">col-3</div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-2">
 					<div class="module">col-3</div>
 				</div>
 			</div>
