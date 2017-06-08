@@ -556,6 +556,16 @@ body.page-faq .menu-item-faq a {
 /* Register
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+body.page-register nav.menu-main ul li a,
+body.page-register nav.menu-main ul li:after { color: #151515; }
+body.page-register nav.menu-main ul li a:hover { color: white; }
+
+body.page-register section.offices { background-color: white; }
+body.page-register .menu-item-register a {
+  border-bottom: 3px solid #151515;
+  border-radius: 6px 6px 0 0;
+}
+
 #register {
 	background-color: rgba(181, 181, 181, 0.30);
 	padding: 15px 5px;
@@ -693,6 +703,16 @@ label {
 
 /* Login
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+body.page-login nav.menu-main ul li a,
+body.page-login nav.menu-main ul li:after { color: #151515; }
+body.page-login nav.menu-main ul li a:hover { color: white; }
+
+body.page-login section.offices { background-color: white; }
+body.page-login .menu-item-register a {
+  border-bottom: 3px solid #151515;
+  border-radius: 6px 6px 0 0;
+}
 
 span.forgot-pass a {
   display: block;
