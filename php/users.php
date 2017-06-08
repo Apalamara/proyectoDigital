@@ -3,12 +3,16 @@
 define('USERS_FILE', __DIR__ . '/../data/users.json');
 define('PASSWORD_MIN_LENGTH', 8);
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Base de datos
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 //La llamamos en register.php donde le pasamos el post
 function register(array $post)
 {
 	$data = $post;
 
-	if (!$errors = validate($data)) 
+	if (!$errors = validateRegister($data)) 
 	{	
 		saveUser($data);
 	}
@@ -16,7 +20,7 @@ function register(array $post)
 	return $errors;
 }
 
-function validate(array $data)
+function validateRegister(array $data)
 {
 	$errors = [];
 
@@ -39,16 +43,16 @@ function validate(array $data)
 		$errors['email'] = 'Debe ingresar un email válido';
 	}
 
-	elseif (checkDuplicate('email', $data['email']))
+	elseif (findByField('email', $data['email']))
 	{
 		$errors ['email']  = 'El mail está duplicado';
 	}
 
-	if(strlen($data['pass']) < PASSWORD_MIN_LENGTH)
+	if(strlen($data['password']) < PASSWORD_MIN_LENGTH)
 	{
-		$errors['pass'] = 'La contraseña debe tener al menos ' . PASSWORD_MIN_LENGTH . ' caracteres';
+		$errors['password'] = 'La contraseña debe tener al menos ' . PASSWORD_MIN_LENGTH . ' caracteres';
 	}
-	elseif($data['pass'] != $data['pass_confirm'])
+	elseif($data['password'] != $data['pass_confirm'])
 	{
 		$errors['pass_confirm'] = 'La contraseña y su confirmacióm deben coincidir';
 	}
@@ -57,7 +61,7 @@ function validate(array $data)
 }
 
 
-function checkDuplicate($field, $value)
+function findByField($field, $value)
 {
 	// @var array $users
 	$users = listUSers();
@@ -65,10 +69,11 @@ function checkDuplicate($field, $value)
 	foreach ($users as $user) 
 	{
 		if (strtolower(trim($user [$field])) == strtolower(trim($value))) {
-				return true;
+				return $user;
 			}	
 	}
 
+	return false;
 }
 
 
@@ -80,7 +85,6 @@ function saveUsersFile(array $users = [])
 
 	file_put_contents(USERS_FILE, json_encode($content));
 }
-
 
 function listUSers()
 {
@@ -103,7 +107,7 @@ function saveUser (array $data)
 	
 	$data['email'] = strtolower (trim($data['email']));
 
-	$data['pass'] = password_hash ($data['pass'], PASSWORD_DEFAULT);
+	$data['password'] = password_hash ($data['password'], PASSWORD_DEFAULT);
 	unset($data['pass_confirm']);
 
 	//TODO Preguntar a Darío si esto está bien
@@ -116,7 +120,10 @@ function saveUser (array $data)
 	$users[] = $data;
 
 	saveUsersFile($users);	
+
+	saveSession($data);
 }
+
 
 function nextId ()
 {
@@ -134,3 +141,106 @@ function nextId ()
 
 	return $id+1;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Sesiones y Cookies
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+function login(array $post)
+{
+
+	$data = $post;
+
+	if (!$errors = validateLogin($data)) 
+	{	
+		//Chequear existencia del mail
+		if(!($user = findByField('email', $data['email'])))
+		{
+			return ['email' => 'El email ingresado no esta registrado en nuestra base de datos'];
+		}
+
+		//chequear el password
+		if(!password_verify($data['password'], $user['password']))
+		{
+			return ['password' => 'El password ingresado es inválido'];
+		}
+
+		//guardamos en la session
+		saveSession($user);
+
+		//suponiendo que chequeo el recordarme
+		if(isset($data['remember_me']))
+		{
+			//guardamos la cookie de remember
+			setcookie('og_user', $user['id'], 5*365*24*60*60+time());
+		}
+
+	}
+
+	return $errors;
+}
+
+
+function validateLogin(array $data)
+{
+	$errors = [];
+
+	if(!isset($data['email']) ||
+		!filter_var($data['email'], FILTER_VALIDATE_EMAIL)
+	)
+	{
+		$errors['email'] = 'Debe ingresar un email válido';
+	}
+
+	if(trim($data['password']) == '')
+	{
+		$errors['password'] = 'Debe ingresar un password';
+	}
+
+	return $errors;
+}
+
+
+function isLoggedIn()
+{
+	return isset($_SESSION['user']);
+}
+
+function saveSession($user)
+{
+	unset($user['password']);
+	$_SESSION['user'] = $user;
+}
+
+function autoLogin()
+{
+	//chequear si ya esta logueado
+	if(!isLoggedIn() && isset($_COOKIE['og_user']))
+	{
+		//leer cookie
+		$userId = $_COOKIE['og_user'];
+
+		//buscamos el usuario
+		$user = findByField('id', $userId);
+
+		//lo escribimos en la session
+		if($user)
+		{
+			saveSession($user);
+		}
+	}
+
+}
+
+
+function logout()
+{
+	//borrar la variable user de la session
+	unset($_SESSION['user']);
+	//destruir la session
+	session_destroy();
+	//borrar la cookie de recordarme
+	setcookie('og_user', 0, time() * -1);
+}
+
+
