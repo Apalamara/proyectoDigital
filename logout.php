@@ -1,5 +1,5 @@
 <?php
-require_once('requires.php');
+require_once('/php/requires.php');
 
 logout();
 
