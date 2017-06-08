@@ -1,3 +1,4 @@
+<?php require_once('./php/requires.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +29,12 @@
 							<ul>
 								<li class="menu-item-host"><a href="register.php">Convertite en gurú</a></li>
 								<li class="menu-item-faq"><a href="faq.php">FAQ</a></li>
+								<?php if (isLoggedIn()) { ?>
+								<li class="menu-item-user"><a href="profile.php"><i class="icon-lock"></i> <?php echo $_SESSION['user']['first_name']; ?></a></li>
+								<?php } else { ?>
 								<li class="menu-item-register"><a href="register.php">Registrate</a></li>
 								<li class="menu-item-login"><a href="login.php">Ingresá</a></li>
+								<?php } ?>
 							</ul>
 						</nav>
 					</div>
