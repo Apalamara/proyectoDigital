@@ -1,6 +1,10 @@
 <?php $bodyClass = 'page-register' ?>
 <?php require_once('./php/users.php'); ?>
 <?php require_once('header.php'); ?>
+<?php if (isLoggedIn()) {
+	header('location: index.php');
+	exit;
+} ?>
 
 <?php
 	// Tener en cuenta el name del input

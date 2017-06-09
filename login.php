@@ -1,4 +1,9 @@
 <?php require_once('./php/requires.php'); ?>
+<?php if (isLoggedIn()) {
+	header('location: index.php');
+			exit;
+
+} ?>
 <?php
 	// Tener en cuenta el name del input
 	$email = $_POST['email'] ?? null;
