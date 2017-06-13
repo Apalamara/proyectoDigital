@@ -16,6 +16,8 @@ Acá vamos a poner todos los archivos del proyecto
 
 *   [Documentación de Markdown](https://daringfireball.net/projects/markdown/)
 *   [Html5 Boilerplate](https://html5boilerplate.com/)
+*   [Trello](https://trello.com/)
+    *   [Trello workflow](https://github.com/csswizardry/csswizardry.github.com/blob/master/_posts/2014-05-02-my-trello-workflow.md)
 
 ### Herramientas sugeridas
 
