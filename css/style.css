@@ -539,15 +539,10 @@ body.page-faq .menu-item-faq a {
   border-radius: 6px 6px 0 0;
 }
 
-.question {
-  float: left;
-  width: 50%;
-  padding-left: 12px;
+.question h4 { 
+  text-transform: uppercase; 
+  font-weight: normal; 
 }
-  .question h4 { 
-    text-transform: uppercase; 
-    font-weight: normal; 
-  }
 
 @media (max-width: 768px) {}
 @media (min-width: 769px) and (max-width: 1024px) {}
