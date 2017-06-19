@@ -10,9 +10,10 @@ define('PASSWORD_MIN_LENGTH', 8);
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 //La llamamos en register.php donde le pasamos el post
-function register(array $post)
+function register(array $post, array $files)
 {
 	$data = $post;
+	$images = $files;
 
 	if (!$errors = validateRegister($data)) 
 	{	
@@ -71,11 +72,11 @@ function findByField($field, $value)
 	foreach ($users as $user) 
 	{
 		if (strtolower(trim($user [$field])) == strtolower(trim($value))) {
-				// Imagen por defecto del usuario
-				// @TODO Este código seguramente deba ir en otra parte
-				$user['image'] = $data['image'] ?? 'default.png';
-				return $user;
-			}	
+			// Imagen por defecto del usuario
+			// @TODO Este código seguramente deba ir en otra parte
+			$user['image'] = $data['image'] ?? 'default.png';
+			return $user;
+		}
 	}
 
 	return false;
@@ -116,6 +117,25 @@ function saveUser (array $data)
 	unset($data['pass_confirm']);
 
 	//Upload user image
+
+	/*
+	Array
+	(
+	    [image] => Array
+	        (
+	            [name] => logo.jpg
+	            [type] => image/jpeg
+	            [tmp_name] => /tmp/phpfzRjMh
+	            [error] => 0
+	            [size] => 20703
+	        )
+
+	)
+	*/
+
+	fileUpload();
+
+	$data['image'] = $data['image'] ?? 'default.png';
 
 	$data['newsletter'] = $data['newsletter'] ?? 'off';
 

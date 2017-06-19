@@ -572,10 +572,6 @@ body.page-faq .menu-item-faq a {
 /* Register
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-body.page-register nav.menu-main ul li a,
-body.page-register nav.menu-main ul li:after { color: #151515; }
-body.page-register nav.menu-main ul li a:hover { color: white; }
-
 body.page-register section.offices { background-color: white; }
 body.page-register .menu-item-register a {
   border-bottom: 3px solid #151515;

@@ -1,4 +1,4 @@
-<?php $bodyClass = 'page-register' ?>
+<?php $bodyClass = 'page-register menu-inverse' ?>
 <?php require_once('./php/users.php'); ?>
 <?php require_once('header.php'); ?>
 <?php if (isLoggedIn()) {

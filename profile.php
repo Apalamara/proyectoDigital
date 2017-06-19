@@ -9,7 +9,7 @@
 	$lastName = $_SESSION['user']['last_name'] ?? null;
 	$newsletter = $_SESSION['user']['newsletter'] ?? null;
 
-	/*
+
 	$errors = [];
 	if($_POST)
 	{
@@ -19,14 +19,12 @@
 			exit;
 		}
 	}
-	*/
 ?>
 
 <main>
 	<section id="register">
 		<div class="container">
 			<div class="txt-center">
-				<h4><?php echo uniqid(mt_rand(), true); ?></h4>
 				<img class="avatar avatar-lg" src="<?php echo USERS_IMAGES_PATH . $_SESSION['user']['image'] ?>" alt="<?php echo $_SESSION['user']['first_name']; ?>"> 
 			</div>
 

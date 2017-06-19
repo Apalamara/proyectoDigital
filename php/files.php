@@ -1,17 +1,41 @@
 <?php
 
-function upload($path, $file, $name = null)
+function fileUpload(array $file, string $path, string $newName = '')
 {
-	if ($_FILES[$file]["error"] == UPLOAD_ERR_OK) {
-        $tmp_name = $_FILES[$file]["tmp_name"];
+	/*
+	Array
+	(
+	    [image] => Array
+	        (
+	            [name] => logo.jpg
+	            [type] => image/jpeg
+	            [tmp_name] => /tmp/phpfzRjMh
+	            [error] => 0
+	            [size] => 20703
+	        )
+
+	)
+	*/
+
+    $tempFile = $file["tmp_name"];
+	
+	if (file_exists($tempFile)) {
         
-        $ext = pathinfo($_FILES[$fieldname]['name'], PATHINFO_EXTENSION);
-        $name = uniqid(mt_rand(), true) .;
-        move_uploaded_file($tmp_name, $path . $name . '.' . $ext);
+
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+
+        if (!$newName) {
+        	$newName = uniqid()  . '.' . $extension;
+        }
+
+        move_uploaded_file($tempFile, $path . $newName);
+
+        return $name;
     }
+
 }
 
-function download($path, $downloadName = null)
+function fileDownload($path, $downloadName = null)
 {
 	if (file_exists($path))
 	{
