@@ -1,7 +1,15 @@
 <?php
-define('AVATARS_DIRECTORY', 'uploads/avatars/');
 
-function upLoad($path,$file){}
+function upload($path, $file, $name = null)
+{
+	if ($_FILES[$file]["error"] == UPLOAD_ERR_OK) {
+        $tmp_name = $_FILES[$file]["tmp_name"];
+        
+        $ext = pathinfo($_FILES[$fieldname]['name'], PATHINFO_EXTENSION);
+        $name = uniqid(mt_rand(), true) .;
+        move_uploaded_file($tmp_name, $path . $name . '.' . $ext);
+    }
+}
 
 function download($path, $downloadName = null)
 {

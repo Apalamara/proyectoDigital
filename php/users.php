@@ -1,6 +1,8 @@
 <?php
 
 define('USERS_FILE', __DIR__ . '/../data/users.json');
+define('USERS_IMAGES_DIR', __DIR__ . '/../data/users/images/');
+define('USERS_IMAGES_PATH', './data/users/images/');
 define('PASSWORD_MIN_LENGTH', 8);
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,6 +71,9 @@ function findByField($field, $value)
 	foreach ($users as $user) 
 	{
 		if (strtolower(trim($user [$field])) == strtolower(trim($value))) {
+				// Imagen por defecto del usuario
+				// @TODO Este código seguramente deba ir en otra parte
+				$user['image'] = $data['image'] ?? 'default.png';
 				return $user;
 			}	
 	}
@@ -110,7 +115,8 @@ function saveUser (array $data)
 	$data['password'] = password_hash ($data['password'], PASSWORD_DEFAULT);
 	unset($data['pass_confirm']);
 
-	//TODO Preguntar a Darío si esto está bien
+	//Upload user image
+
 	$data['newsletter'] = $data['newsletter'] ?? 'off';
 
 	//id - hacer un autonumerico encontrando el id más grande y sumando 1

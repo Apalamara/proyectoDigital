@@ -1,4 +1,4 @@
-<?php $bodyClass = 'page-profile' ?>
+<?php $bodyClass = 'page-profile menu-inverse' ?>
 <?php require_once('./php/users.php'); ?>
 <?php require_once('header.php'); ?>
 
@@ -25,13 +25,20 @@
 <main>
 	<section id="register">
 		<div class="container">
-
-			<h2 class="p-left p-right">Perfil</h2>
+			<div class="txt-center">
+				<h4><?php echo uniqid(mt_rand(), true); ?></h4>
+				<img class="avatar avatar-lg" src="<?php echo USERS_IMAGES_PATH . $_SESSION['user']['image'] ?>" alt="<?php echo $_SESSION['user']['first_name']; ?>"> 
+			</div>
 
 			<div class="p-left p-right p-half-top">
 				<!--Empieza el form de registro -->
-				<form class="form-register" action="" method="post">
-
+				<form class="form-register" enctype="multipart/form-data" action="" method="post">
+					<!-- 
+						Tamaño máximo de imagen en bytes. Esto es sólo para cortar la transferencia en caso de que se pase del tamaño
+						pero de igual manera debe validarse del lado del servidor.
+					-->
+					<input type="hidden" name="MAX_FILE_SIZE" value="5242880" />
+					
 					<div class="form-group">
 						<label for="email">Email</label>
 						<input type="email" name="email" class="form-control" id="email" value="<?php echo $email; ?>">
@@ -43,12 +50,17 @@
 						<input type="text" name="first_name" class="form-control" id="first_name" value="<?php echo $firstName; ?>">
 					</div>
 
-
 					<div class="form-group">		
 						<label for="last_name">Apellido</label>
 						<input type="text" name="last_name" class="form-control" id="last_name" value="<?php echo $lastName; ?>">
 					</div>
-			
+
+					<div class="form-group">		
+						<label for="last_name">Imagen</label>
+						<input type="file" name="image" class="form-control" id="image" value="">
+						<p>La imagen debe ser de al menos 400px x 400px y deberá pesar menos de 5 Mb.</p>
+					</div>
+
 					<div class="form-group">
 						<label for="password">Contraseña</label>
 						<input type="password" name="password" class="form-control" id="password" value="">

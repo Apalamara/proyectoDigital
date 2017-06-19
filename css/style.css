@@ -311,6 +311,19 @@ nav.horizontal ul li {
  * rating por estrellas
  */
 
+/* Profile img */
+img.avatar {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: solid 1px white;
+}
+
+img.avatar-sm { width: 1.2em; height: 1.2em; line-height: 1em; margin: 0 3px 0 0;}
+img.avatar-md { width: 5em; height: 5em; line-height: 5em; }
+img.avatar-lg { width: 15em; height: 15em; line-height: 12em; border-width: 6px; }
+
 /* Star rating */
 
 ul.stars { padding: 0; }
@@ -404,6 +417,14 @@ nav.menu-main {
       color: white;
     }
     nav.menu-main ul li:last-child:after { content: ""; }
+
+/* Colores inversos para páginas con fondos claros */
+body.menu-inverse nav.menu-main ul li a,
+body.menu-inverse nav.menu-main ul li:after,
+nav.menu-main.menu-inverse ul li a,
+nav.menu-main.menu-inverse ul li:after { color: #151515; }
+body.menu-inverse nav.menu-main ul li a:hover,
+nav.menu-main.menu-inverse ul li a:hover { color: white; }
 
 /* Social networks menu */
 
