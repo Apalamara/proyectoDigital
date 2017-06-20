@@ -2,35 +2,25 @@
 
 function fileUpload(array $file, string $path, string $newName = '')
 {
-	/*
-	Array
-	(
-	    [image] => Array
-	        (
-	            [name] => logo.jpg
-	            [type] => image/jpeg
-	            [tmp_name] => /tmp/phpfzRjMh
-	            [error] => 0
-	            [size] => 20703
-	        )
-
-	)
-	*/
-
     $tempFile = $file["tmp_name"];
 	
-	if (file_exists($tempFile)) {
+	if (file_exists($tempFile))
+	{
         
-
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
 
-        if (!$newName) {
+        if (!$newName) 
+        {
         	$newName = uniqid()  . '.' . $extension;
         }
 
         move_uploaded_file($tempFile, $path . $newName);
 
-        return $name;
+        return $newName;
+    }
+    else
+    {
+    	return false;
     }
 
 }
