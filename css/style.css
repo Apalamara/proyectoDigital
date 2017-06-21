@@ -173,16 +173,22 @@ input[type="submit"] { cursor: pointer; }
   margin: 0 auto;
 }
 
+/* NavBar */
+
 nav ul { 
   padding: 0;  
 }
 nav ul li { 
-  list-style-type: none;
-  text-transform: uppercase;
+   list-style-type: none;
+   text-transform: uppercase;
+   font-size: 13px;
+   float: left;
+   margin:10px;
 }
 nav.horizontal ul li {
   display: inline-block;
 }
+
 
 /* Grilla */
 
@@ -436,7 +442,11 @@ body.page-faq .menu-item-faq a {
 
 /* Social networks menu */
 
-section.social { border-top: 1px solid #828282; }  
+section.social { 
+  border-top: 1px solid #828282; 
+  padding-bottom: 0;
+}
+
 nav.menu-social {
   margin: 0 auto;
   text-align: center; 
@@ -447,10 +457,10 @@ nav.menu-social {
       display: block;
       width: 48px;
       height: 48px;
-      margin: 0 12px;
+      margin: 0 8px;
       background-color: white;
       text-align: center;
-      font-size: 32px;
+      font-size: 20px;
       line-height: 48px;
       color: #151515;
       border-radius: 50%;
@@ -481,16 +491,79 @@ footer {
   color: white;
 }
 
-footer a { color: white; }
-footer .copy { 
-  text-align: center;
-  text-transform: uppercase; 
+footer a { 
+  color: white; 
 }
+
+/*Section footermenu*/
+
+.sfooter {
+  padding: 20px 0 0 0;
+}
+
+
+.displayfooter{
+  text-align: center;
+  width: 100%;
+}
+
+.menufooter{
+  display: inline-block;
+}
+
+.navfooter ul li{
+  float: none;
+  margin: 0;
+}
+
+.navsocial ul li{
+  margin-bottom: 25px;
+}
+
+.navsocial ul li:last-child{
+  margin-bottom: 0px;
+}
+
+/*Section copyrigth*/
+
+.imgfooter img {
+  display: block;
+  margin: 0 auto;
+  max-width: 45%;
+}
+
+.copy { 
+  text-align: center;
+}
+
+
+/*
+Lo pego acá como referencia
+
+.container {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+nav ul { 
+  padding: 0;  
+}
+nav ul li { 
+   list-style-type: none;
+   text-transform: uppercase;
+   font-size: 13px;
+   float: left;
+   margin:10px;
+}
+nav.horizontal ul li {
+  display: inline-block;
+}
+*/
 
 @media (max-width: 768px) {}
 @media (min-width: 769px) and (max-width: 1024px) {}
 @media (min-width: 1025px) {}
-
 
 /* Home
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -565,6 +638,8 @@ body.page-faq { background-color: #FBFBB1; }
 @media (max-width: 768px) {}
 @media (min-width: 769px) and (max-width: 1024px) {}
 @media (min-width: 1025px) {}
+
+
 
 /* User forms - login / register / recover password
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
