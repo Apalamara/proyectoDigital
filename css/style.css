@@ -159,7 +159,6 @@ select {
 input[type="submit"] { cursor: pointer; }
 
 
-
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Layout
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -297,6 +296,10 @@ nav.horizontal ul li {
   clear: both;
 }
 
+.pad-left{ padding-left: 20px; }
+.pad-right { padding-right: 20px; }
+.pad-half-top{ padding-top: 10px; }
+
 .txt-center { text-align: center; }
 .txt-right { text-align: right; }
 .txt-left { text-align: left; }
@@ -335,6 +338,7 @@ ul.stars li i { color: tomato; }
 
 /* Office list */
 
+section.offices { background-color: white; }
 .office-list {}
   .office-list .office {
     margin: 24px 0;
@@ -346,9 +350,6 @@ ul.stars li i { color: tomato; }
   }
 
   .office-list .office p .services { float: right }
-
-@media (min-width: 769px) and (max-width: 1024px) {}
-@media (min-width: 1025px) {}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -363,8 +364,7 @@ ul.stars li i { color: tomato; }
 /* Header
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-header {
-}
+header {}
     
 /**
  * Escondemos el texto del H1, de esta manera se ve el logo y Google está feliz
@@ -425,6 +425,14 @@ nav.menu-main.menu-inverse ul li a,
 nav.menu-main.menu-inverse ul li:after { color: #151515; }
 body.menu-inverse nav.menu-main ul li a:hover,
 nav.menu-main.menu-inverse ul li a:hover { color: white; }
+
+/* Menues activos por página */
+body.page-login .menu-item-login a,
+body.page-register .menu-item-register a,
+body.page-faq .menu-item-faq a {
+  border-bottom: 3px solid #151515;
+  border-radius: 6px 6px 0 0;
+}
 
 /* Social networks menu */
 
@@ -532,8 +540,6 @@ body.page-home .search select {
   border: 1px solid #151515;
 }
 
-body.page-home .offices { background-color: white; }
-
 @media (max-width: 768px) {}
 @media (min-width: 769px) {
   body.page-home .search input,
@@ -550,15 +556,6 @@ body.page-home .offices { background-color: white; }
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.page-faq { background-color: #FBFBB1; }
-body.page-faq nav.menu-main ul li a,
-body.page-faq nav.menu-main ul li:after { color: #151515; }
-body.page-faq nav.menu-main ul li a:hover { color: white; }
-
-body.page-faq section.offices { background-color: white; }
-body.page-faq .menu-item-faq a {
-  border-bottom: 3px solid #151515;
-  border-radius: 6px 6px 0 0;
-}
 
 .question h4 { 
   text-transform: uppercase; 
@@ -569,60 +566,12 @@ body.page-faq .menu-item-faq a {
 @media (min-width: 769px) and (max-width: 1024px) {}
 @media (min-width: 1025px) {}
 
-/* Register
+/* User forms - login / register / recover password
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-body.page-register section.offices { background-color: white; }
-body.page-register .menu-item-register a {
-  border-bottom: 3px solid #151515;
-  border-radius: 6px 6px 0 0;
-}
+section.user-form { background-color: rgba(181, 181, 181, 0.30); }
 
-#register {
-	background-color: rgba(181, 181, 181, 0.30);
-	padding: 15px 5px;
-}
-
-/* Botones SignIn - SignUp */
-
-.register-nav {
-  /*background-color: #F6F53C;*/
-  text-align: center;
-}
-
-.register-nav ul {
-  margin: 0;
-  padding: 0;
-}
-
-.register-nav ul li {
-  display: inline-block;
-  background-color: #2C0337;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  width: 162px;
-  padding: 18px;
-}
-
-.register-nav ul li.second {
-  margin-left: -2px;
-}
-
-.register-nav ul li a {
-	color: #fff;
-  
-}
-
-.register-nav ul li.active {
-	background-color: #FBFBB1;
-}
-
-.register-nav ul li.active a {
-	color: #151515;
-}
-
-#register h2 {
+section.user-form h2 {
   font-weight: normal;
   text-transform: initial;
   line-height: 1.3;
@@ -631,7 +580,6 @@ body.page-register .menu-item-register a {
 /* Forms */
 
 /* TODO: mover el código reutilizable a Layout */
-
 
 @media only screen and (min-width: 768px) {
   form.form-login,
@@ -648,13 +596,9 @@ body.page-register .menu-item-register a {
   }
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
+.form-group { margin-bottom: 20px; }
 
-.form-control {
-	position: relative;
-}
+.form-control {	position: relative; }
 
 input.form-control {
 	width: 100%;
@@ -672,7 +616,6 @@ label {
   margin: 8px 0;
   padding: 0 2px;
 }
-
 
 .legal-text p{
   font-size: 13px;
@@ -712,45 +655,3 @@ label {
 	width: 100%;
 	margin-top: 40px;
 }
-
-/* Login
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-body.page-login nav.menu-main ul li a,
-body.page-login nav.menu-main ul li:after { color: #151515; }
-body.page-login nav.menu-main ul li a:hover { color: white; }
-
-body.page-login section.offices { background-color: white; }
-body.page-login .menu-item-register a {
-  border-bottom: 3px solid #151515;
-  border-radius: 6px 6px 0 0;
-}
-
-span.forgot-pass a {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 9px;
-  font-size: 13px;
-  font-weight: bold;
-  color: tomato;
-
-}
-
-
-
-/* Helpers
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-.p-left{
-  padding-left: 20px;
-}
-
-.p-right{
-  padding-right: 20px;
-}
-
-.p-half-top{
-  padding-top: 10px;
-}
-

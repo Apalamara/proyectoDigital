@@ -1,11 +1,11 @@
-<?php $bodyClass = 'page-register menu-inverse' ?>
-<?php require_once('./php/users.php'); ?>
-<?php require_once('header.php'); ?>
-<?php if (isLoggedIn()) {
+<?php require_once('./php/requires.php'); ?>
+<?php 
+if (isLoggedIn()) 
+{
 	header('location: index.php');
 	exit;
-} ?>
-
+} 
+?>
 <?php
 	// Tener en cuenta el name del input
 	$email = $_POST['email'] ?? null;
@@ -22,16 +22,15 @@
 			exit;
 		}
 	}
-
 	// Formatea el print-r
 	// echo '<pre>' . print_r ($_POST, true) . '</pre>';
 ?>
-
+<?php $bodyClass = 'page-register menu-inverse' ?>
+<?php require_once('header.php'); ?>
 <main>
-	<section id="register">
+	<section class="user-form">
 		<div class="container">
-
-			<h2 class="p-left p-right">Registrate ahora y empezá a trabajar desde donde quieras</h2>
+			<h2>Registrate ahora y empezá a trabajar desde donde quieras</h2>
 			<div class="legal-text">
 				<h4>¿Ya tenés cuenta? <a href="login.php">Iniciá Sesión</a></h4>
 			</div>
@@ -45,7 +44,7 @@
 					</div>
 			<?php } ?>
 
-			<div class="p-left p-right p-half-top">
+			<div class="pad-left pad-right pad-half-top">
 				<!--Empieza el form de registro -->
 				<form class="form-register" action="" method="post">
 

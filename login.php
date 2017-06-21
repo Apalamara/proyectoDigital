@@ -21,15 +21,15 @@ if (isLoggedIn())
 	}
 ?>
 
-<?php $bodyClass = 'page-login'; ?>
+<?php $bodyClass = 'page-login menu-inverse'; ?>
 <?php require_once('header.php'); ?>
 
 <main>
-	<section id="register">
+	<section class="user-form">
 		<div class="container">
-			<h2 class="p-left p-right">Iniciar Sesión</h2>
+			<h2 class="pad-left pad-right">Iniciar Sesión</h2>
 			<div class="legal-text">
-				<h4>¿Todavía no formás parte? <br/> <a href="register.php">Creá tu cuenta</a></h4>
+				<h4>¿Todavía no formás parte? <a href="register.php">Creá tu cuenta</a></h4>
 			</div>
 
 			<?php
@@ -42,7 +42,7 @@ if (isLoggedIn())
 			<?php } ?>
 
 			<!--Empieza el form de registro -->
-			<div class="p-left p-right p-half-top">
+			<div class="pad-left pad-right pad-half-top">
 				<form class="form-login" action="" method="post">
 						<div class="form-group">
 							<label for="email">Email</label>
@@ -59,7 +59,7 @@ if (isLoggedIn())
 					<input type="submit" class="btn btn-register" value="Iniciar Sesión">
 
 					<div class="legal-text">
-						<p><a href="#login">Recuperar contraseña</a></p>
+						<p><a href="recover-password.php">Recuperar contraseña</a></p>
 					</div>
 				</form>
 			</div>

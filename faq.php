@@ -1,4 +1,5 @@
-<?php $bodyClass = 'page-faq' ?>
+<?php require_once('./php/requires.php'); ?>
+<?php $bodyClass = 'page-faq menu-inverse' ?>
 <?php require_once('header.php'); ?>
 <main>
 	<section class="questions">

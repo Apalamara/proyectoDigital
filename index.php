@@ -1,4 +1,3 @@
-
 <?php require_once('./php/requires.php'); ?>
 <?php $bodyClass = 'page-home'; ?>
 <?php require_once('header.php'); ?>

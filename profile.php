@@ -25,7 +25,7 @@ $id = $_SESSION['user']['id'];
 <?php $bodyClass = 'page-profile menu-inverse' ?>
 <?php require_once('header.php'); ?>
 <main>
-	<section id="register">
+	<section class="user-form">
 		<div class="container">
 			<?php if($errors) { ?>
 				<div class="alert alert-danger">
@@ -39,7 +39,7 @@ $id = $_SESSION['user']['id'];
 				<img class="avatar avatar-lg" src="<?php echo USERS_IMAGES_PATH . $image ?>" alt="<?php echo $_SESSION['user']['first_name']; ?>"> 
 			</div>
 
-			<div class="p-left p-right p-half-top">
+			<div class="pad-left pad-right pad-half-top">
 				<!--Empieza el form de registro -->
 				<form class="form-register" enctype="multipart/form-data" action="" method="post">
 					<!-- 

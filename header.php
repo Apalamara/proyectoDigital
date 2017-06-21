@@ -1,4 +1,3 @@
-<?php require_once('./php/requires.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
