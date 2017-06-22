@@ -1,30 +1,28 @@
 	<footer>
 
-		<section class="sfooter footermenu">
+		<section class="footernav pad-bottom pad-top">
 			<div class="container">
 				<div class="row">
-					<div class="displayfooter col-lg-12">
-						<div class="menufooter">
-							<nav class="navfooter navsocial">
-								<ul>
-									<li><a href="index.php">Inicio</a></li>
-									<li><a href="login.php">Preguntas</a></li>
-									<li><a href="register.php">Conviértete en anfitrión</a></li>
-									<li><a href="faq.php">Regístrate</a></li>
-									<li><a href="faq.php">Iniciar sesión</a></li>
-								</ul>
-							</nav>					
-						</div>
+					<div class="col-lg-12 txt-center w-100">
+						<nav class="footernav-menu d-inlineblock">
+							<ul>
+								<li><a href="index.php">Inicio</a></li>
+								<li><a href="login.php">Preguntas</a></li>
+								<li><a href="register.php">Conviértete en anfitrión</a></li>
+								<li><a href="faq.php">Regístrate</a></li>
+								<li><a href="faq.php">Iniciar sesión</a></li>
+							</ul>
+						</nav>				
 					</div>
 				</div>
 			</div>			
 		</section>
 
-		<section class="social">
+		<section class="footersocial pad-bottom pad-top">
 			<div class="container">
 				<div class="row">
-					<div class="displayfooter col-lg-12">
-						<nav class="navfooter menu-social horizontal">
+					<div class="col-lg-12 txt-center w-100">
+						<nav class="menu-social d-inlineblock">
 							<ul>
 								<li><a href="https://facebook.com" target="_blank"><i class="icon-facebook"></i></a></li>
 								<li><a href="https://twitter.com" target="_blank"><i class="icon-twitter"></i></a></li>
@@ -37,7 +35,7 @@
 			</div>
 		</section>
 
-		<section class="sfooter copyright">
+		<section class="footercopy pad-bottom pad-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-12 imgfooter">

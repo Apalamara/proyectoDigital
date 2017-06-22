@@ -44,8 +44,8 @@
 *, 
 *:after, 
 *:before {
-	box-sizing: border-box;
-	font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
   /* Transiciones de medio segundo para todos los efectos
    * https://css-tricks.com/almanac/properties/t/transition/ */
   /* transition: all 0.5s ease-out; */
@@ -66,18 +66,18 @@ h3 { font-weight: normal; }
 
 
 a {
-	text-decoration: none;
-	color: tomato;
+  text-decoration: none;
+  color: tomato;
 }
 
 ul li { list-style-type: none; }
 
-section { padding: 24px 0; }
 
 /**
  * Fuente para iconos 
  * http://fontello.com/
  */
+
 @font-face {
   font-family: 'fontello';
   src: url('../fonts/fontello.eot?39905452');
@@ -147,7 +147,7 @@ section { padding: 24px 0; }
 }
 
 
-/* Forms */
+/* Forms */ /* ************************** Revisar ******************** */
 
 input[type="text"],
 input[type="textarea"],
@@ -157,6 +157,7 @@ select {
   border-radius: 6px;
 }
 input[type="submit"] { cursor: pointer; }
+
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -173,32 +174,22 @@ input[type="submit"] { cursor: pointer; }
   margin: 0 auto;
 }
 
-/* NavBar */
-
 nav ul { 
   padding: 0;  
-}
-nav ul li { 
-   list-style-type: none;
-   text-transform: uppercase;
-   font-size: 13px;
-   float: left;
-   margin:10px;
-}
-nav.horizontal ul li {
-  display: inline-block;
 }
 
 
 /* Grilla */
-
 /**
  * https://css-tricks.com/dont-overthink-it-grids/
  */
 
-.row { 
+
+/* ******************************************************* Revisar *************************************************************************/
+/*.row { 
   margin: 0 0 20px 0;
-}
+}*/
+/* ******************************************************* ******* *************************************************************************/
 
 /* Las filas estarán llenas de elementos flotados, con esto nos aseguramos que 
  * el contenedor ocupe todo el espacio que debería.
@@ -304,12 +295,26 @@ nav.horizontal ul li {
 
 .pad-left{ padding-left: 20px; }
 .pad-right { padding-right: 20px; }
+.pad-bottom { padding-bottom: 20px; }
+.pad-top { padding-top: 20px; }
+
 .pad-half-top{ padding-top: 10px; }
 
 .txt-center { text-align: center; }
 .txt-right { text-align: right; }
 .txt-left { text-align: left; }
 .txt-justify { text-align: justify; }
+
+.f-left {float: left;}
+
+.w-100 { width: 100%; }
+
+.d-inlineblock {display: inline-block;}
+
+@media (min-width: 769px) {
+  .d-inlineblock-lg {display: block!important;}
+}
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Components
@@ -367,29 +372,24 @@ section.offices { background-color: white; }
  * puedan reutilizarse o que se repitan deben ir en Layout.
  */
 
+
+
 /* Header
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-header {}
     
 /**
  * Escondemos el texto del H1, de esta manera se ve el logo y Google está feliz
  * https://stackoverflow.com/questions/12873390/hide-text-in-h1-tag-but-not-the-image
  */
-  header h1 { 
-    margin: 0;
-    font-size: 0; 
-  }
-  header h1 img {
-    margin: 12px 0 0;
-  }
 
-/* Menu bars */
-.menus { 
-  position: absolute;
-  top: 0;
-  right: 0;
+header h1 { 
+  margin: 0;
+  font-size: 0; 
 }
+header h1 img {
+  margin: 12px 0 0;
+}
+
 
 /* Mobile menú */
 
@@ -399,38 +399,92 @@ header {}
   right: 24px;
 }
 
+@media (min-width: 769px) {
+  .menu-mobile {
+    display: none;
+  }
+}
+
 /* Main navigation menu */
 
-nav.menu-main { 
+.headernav { 
   display: none;
-  float: right;
-  padding-left: 48px;
 }
-  nav.menu-main ul li a {
-    padding: 6px 12px;
-    color: white;
+
+
+@media (min-width: 769px) {
+  main {
+    margin-top: 90px;
+  }
+
+  .navbarheader {
+    background-color: #fff;
+    height: 90px;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+  }
+
+  .menus {
+    width: 100%;
+  }
+
+  .headernav {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .headerlogo {
+    float: left;
+  }
+
+  .headernav .headerlogo img{
+    width: 120px;
+  }
+
+  .headernav-menu {
+    float: right;
+    margin-top: 20px;
+  }
+
+  .headernav-menu ul li{
+    float: left;
+  }
+
+  .headernav-menu ul li a {
+    padding-bottom: 6px;
+    margin: 10px 12px;
     font-size: 14px;
     line-height: 28px;
     font-weight: bold;
-    border-radius: 6px;
+    transition: 0.3s;
   }
-  nav.menu-main ul li a:hover { 
-    background-color: #151515;
+
+  .headernav-menu ul li a:hover { 
+    border-bottom: 2px solid tomato;
+    border-radius: 0;
   }
-    nav.menu-main ul li:after {
-      content: "|";
-      padding: 0 3px;
-      color: white;
-    }
-    nav.menu-main ul li:last-child:after { content: ""; }
+
+  .headernav-menu ul li:after {
+    content: "|";
+    padding: 0 3px;
+    color: tomato;
+  }
+  .headernav-menu ul li:last-child:after { 
+    content: ""; 
+  }
+}
 
 /* Colores inversos para páginas con fondos claros */
-body.menu-inverse nav.menu-main ul li a,
-body.menu-inverse nav.menu-main ul li:after,
-nav.menu-main.menu-inverse ul li a,
-nav.menu-main.menu-inverse ul li:after { color: #151515; }
-body.menu-inverse nav.menu-main ul li a:hover,
-nav.menu-main.menu-inverse ul li a:hover { color: white; }
+body.menu-inverse nav.headernav ul li a,
+body.menu-inverse nav.headernav ul li:after,
+nav.headernav.menu-inverse ul li a,
+nav.headernav.menu-inverse ul li:after { color: #151515; }
+body.menu-inverse nav.headernav ul li a:hover,
+nav.headernav.menu-inverse ul li a:hover { color: white; }
 
 /* Menues activos por página */
 body.page-login .menu-item-login a,
@@ -440,133 +494,11 @@ body.page-faq .menu-item-faq a {
   border-radius: 6px 6px 0 0;
 }
 
-/* Social networks menu */
-
-section.social { 
-  border-top: 1px solid #828282; 
-  padding-bottom: 0;
-}
-
-nav.menu-social {
-  margin: 0 auto;
-  text-align: center; 
-}
-  nav.menu-social ul li {}
-  nav.menu-social ul li:after {}
-    nav.menu-social ul li a {
-      display: block;
-      width: 48px;
-      height: 48px;
-      margin: 0 8px;
-      background-color: white;
-      text-align: center;
-      font-size: 20px;
-      line-height: 48px;
-      color: #151515;
-      border-radius: 50%;
-      transition: all 0.3s;
-    }
-
-    nav.menu-social ul li a:hover {
-      transform: scale(1.2);
-    }
-
-@media (max-width: 768px) {}
-@media (min-width: 769px) and (max-width: 1024px) {
-  .menu-mobile { display: none; }
-  nav.menu-main { display: block; }
-}
-@media (min-width: 1025px) {
-  .menu-mobile { display: none; }
-  nav.menu-main { display: block; }
-}
-
-
-/* Footer
+/* Home / index.php
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-footer {
-  overflow: hidden;
-  background-color: #151515;
-  color: white;
-}
 
-footer a { 
-  color: white; 
-}
-
-/*Section footermenu*/
-
-.sfooter {
-  padding: 20px 0 0 0;
-}
-
-
-.displayfooter{
-  text-align: center;
-  width: 100%;
-}
-
-.menufooter{
-  display: inline-block;
-}
-
-.navfooter ul li{
-  float: none;
-  margin: 0;
-}
-
-.navsocial ul li{
-  margin-bottom: 25px;
-}
-
-.navsocial ul li:last-child{
-  margin-bottom: 0px;
-}
-
-/*Section copyrigth*/
-
-.imgfooter img {
-  display: block;
-  margin: 0 auto;
-  max-width: 45%;
-}
-
-.copy { 
-  text-align: center;
-}
-
-
-/*
-Lo pego acá como referencia
-
-.container {
-  position: relative;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-nav ul { 
-  padding: 0;  
-}
-nav ul li { 
-   list-style-type: none;
-   text-transform: uppercase;
-   font-size: 13px;
-   float: left;
-   margin:10px;
-}
-nav.horizontal ul li {
-  display: inline-block;
-}
-*/
-
-@media (max-width: 768px) {}
-@media (min-width: 769px) and (max-width: 1024px) {}
-@media (min-width: 1025px) {}
-
-/* Home
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*Video Container*/
 
 .video-container {
   display: none;
@@ -584,7 +516,17 @@ nav.horizontal ul li {
   transform: translateY(-50%);
 }
 
-body.page-home .video-container { display: block; }
+body.page-home .video-container { 
+  display: block; 
+}
+
+@media (min-width: 769px) {
+  .video-container  {
+    margin-top: 90px;
+  }
+}
+
+/*Search que está en index.php*/
 
 body.page-home .search {
     min-height: 300px;
@@ -613,7 +555,6 @@ body.page-home .search select {
   border: 1px solid #151515;
 }
 
-@media (max-width: 768px) {}
 @media (min-width: 769px) {
   body.page-home .search input,
   body.page-home .search select { 
@@ -624,6 +565,94 @@ body.page-home .search select {
     margin-right: 12px;
   }
 }
+
+
+
+/* Footer
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+footer {
+  overflow: hidden;
+  background-color: #151515;
+  color: white;
+}
+
+footer a { 
+  color: white; 
+}
+
+/*Section footernav*/
+
+.footernav-menu ul li{
+  margin-bottom: 25px;
+}
+
+.footernav-menu ul li:last-child{
+  margin-bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .footernav-menu ul li{
+    float: left;
+    margin-right: 20px;
+    font-size: 12px;
+  }
+}
+
+/*Section footersocial*/
+
+section.footersocial { 
+  border-top: 1px solid #828282; 
+  padding-bottom: 0;
+}
+
+.menu-social ul li {
+  float: left;
+}
+
+.menu-social ul li a {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0 8px;
+  background-color: white;
+  text-align: center;
+  font-size: 20px;
+  line-height: 48px;
+  color: #151515;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.menu-social ul li a:hover {
+  transform: scale(1.2);
+}
+
+
+/*Section copyrigth*/
+
+.imgfooter img {
+  display: block;
+  margin: 15px auto;
+  max-width: 45%;
+}
+
+.copy { 
+  text-align: center;
+  margin: 5px;
+  font-size: 12px;
+}
+
+
+@media (min-width: 769px) {
+  .imgfooter img {
+    margin: 20px auto;
+    width: 15%;
+  }
+}
+
+
+
 
 /* FAQ
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -673,10 +702,10 @@ section.user-form h2 {
 
 .form-group { margin-bottom: 20px; }
 
-.form-control {	position: relative; }
+.form-control { position: relative; }
 
 input.form-control {
-	width: 100%;
+  width: 100%;
   min-height: 50px;
   padding: 12px;
   border: none;
@@ -685,7 +714,7 @@ input.form-control {
 }
 
 label {
-	font-size: 14px;
+  font-size: 14px;
   color: #676262;
   display: block;
   margin: 8px 0;
@@ -726,7 +755,9 @@ label {
 }
 
 .btn-register {
-	display: block;
-	width: 100%;
-	margin-top: 40px;
+  display: block;
+  width: 100%;
+  margin-top: 40px;
 }
+
+

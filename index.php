@@ -1,6 +1,7 @@
 <?php require_once('./php/requires.php'); ?>
 <?php $bodyClass = 'page-home'; ?>
 <?php require_once('header.php'); ?>
+
 <main>
 	<section class="search">
 		<div class="container">
@@ -24,4 +25,5 @@
 	</section>
 	<?php require_once('office-list.php'); ?>
 </main>
+
 <?php require_once('footer.php'); ?>
