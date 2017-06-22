@@ -7,10 +7,10 @@
 						<nav class="footernav-menu d-inlineblock">
 							<ul>
 								<li><a href="index.php">Inicio</a></li>
-								<li><a href="login.php">Preguntas</a></li>
+								<li><a href="faq.php">Preguntas</a></li>
 								<li><a href="register.php">Conviértete en anfitrión</a></li>
-								<li><a href="faq.php">Regístrate</a></li>
-								<li><a href="faq.php">Iniciar sesión</a></li>
+								<li><a href="register.php">Regístrate</a></li>
+								<li><a href="login.php">Iniciar sesión</a></li>
 							</ul>
 						</nav>				
 					</div>

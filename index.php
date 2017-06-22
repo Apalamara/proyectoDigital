@@ -4,9 +4,15 @@
 
 <main>
 	<section class="search">
-		<div class="container">
+		<div class="video-container">
+			<video id="bgVideo" controls preload="true" autoplay loop muted>
+				<source src="img/office-bg.mp4" type="video/mp4" > 
+			</video>
+		</div>
+
+		<div class="container-search">
 			<div class="row">
-				<div class="col-12">
+				<div class="w-100 txt-center">
 					<div class="search-container">				
 						<h2>¡Encontrá tu próxima oficina!</h2>
 						<form name="office-search" action="offices.php" method="post">

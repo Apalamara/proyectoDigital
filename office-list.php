@@ -93,9 +93,11 @@ $offices = [
 	], 
 ];
 ?>
+
 	<section class="offices">
 		<div class="container">
 			<h2>Oficinas destacadas</h2>
+			
 			<div class="row office-list">
 				<?php foreach ($offices as $office) { ?>
 				<div class="col-sm-6 col-md-4 col-lg-3">

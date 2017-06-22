@@ -15,19 +15,10 @@
 <body class="<?php echo (isset($bodyClass) ? $bodyClass : ''); ?>">
 
 	<header>	
-
-		<div class="video-container">
-			<video id="bgVideo" controls preload="true" autoplay loop muted>
-				<source src="img/office-bg.mp4" type="video/mp4" > 
-			</video>
-		</div>
-
 		<div class="container group">
 			<div class="row">
 				<div class="navbarheader col-lg-12">
 					<div class="menus group container">
-						<img class="menu-mobile" src="img/menu.png">
-
 						<nav class="headernav">
 							<div class="headerlogo">
 								<h1 class="logo">Office Gurú<a href="index.php"><img src="img/logo.png" alt="Office Guru"></a></h1>
@@ -51,6 +42,8 @@
 									<?php } ?>
 								</ul>
 							</div>
+							
+							<img class="menu-mobile" src="img/menu.png">
 						</nav>
 
 					</div>
