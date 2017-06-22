@@ -2,12 +2,19 @@
 <?php $bodyClass = 'page-faq' ?>
 <?php require_once('header.php'); ?>
 <main>
-	<section class="questions">
+	<section class="questions pad-top">
 		<div class="container">
-			<h2>Gracias por registrarte</h2>
-			<article class="question">
-				<h4>¿Lorem ipsum dolor sit amet?</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam laudantium animi voluptate quam illo voluptatibus libero assumenda deleniti inventore, at, cumque doloribus sit nostrum molestiae, sequi quaerat dicta! Corporis, consequuntur!</p>
+			<h2>¡Gracias por registrarte!</h2>
+			<article class="question txt-center">
+				<h4>Tenemos algunas recomendaciones para vos:</h4>
+				<div class="welcome-nav-bar">
+					<ul>
+						<li><a href="profile.php">1. Completá tu perfil personal</a></li>
+						<li><a href="">2. Buscá el mejor espacio para vos</a></li>
+						<li><a href="">3. Agregá un nuevo espacio</a></li>
+						<li><a href="">4. Mirá nuestro blog</a></li>
+					</ul>
+				</div>
 			</article>
 		</div>
 	</section>

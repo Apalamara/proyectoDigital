@@ -521,7 +521,7 @@ body.menu-inverse nav.headernav ul li:after,
 nav.headernav.menu-inverse ul li a,
 nav.headernav.menu-inverse ul li:after { color: #151515; }
 body.menu-inverse nav.headernav ul li a:hover,
-nav.headernav.menu-inverse ul li a:hover { color: white; }
+nav.headernav.menu-inverse ul li a:hover { color: tomato; }
 
 /* Menues activos por página */
 body.page-login .menu-item-login a,
@@ -733,7 +733,9 @@ section.footersocial {
 /* FAQ
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-body.page-faq { background-color: #FBFBB1; }
+body.page-faq { 
+  background-color: #FBFBB1; 
+}
 
 .question h4 { 
   text-transform: uppercase; 
@@ -836,4 +838,25 @@ label {
   margin-top: 40px;
 }
 
+
+/* Welcome
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+.welcome-nav-bar ul li a {
+  padding-bottom: 2px;
+  margin: 10px 12px;
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+.welcome-nav-bar ul {
+  padding: 0;
+}
+
+.welcome-nav-bar ul li a:hover { 
+  border-bottom: 1px solid tomato;
+  border-radius: 0;
+}
 

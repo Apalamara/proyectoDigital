@@ -28,7 +28,7 @@ if (isLoggedIn())
 <?php $bodyClass = 'page-register menu-inverse' ?>
 <?php require_once('header.php'); ?>
 <main>
-	<section class="user-form">
+	<section class="user-form pad-top">
 		<div class="container">
 			<h2>Registrate ahora y empezá a trabajar desde donde quieras</h2>
 			<div class="legal-text">
