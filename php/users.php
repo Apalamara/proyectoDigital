@@ -133,6 +133,22 @@ function validateProfileForm(array $fields, array $files)
     return $errors;
 }
 
+function getRecoverLink($email) {
+    if(!($user = findByField('email', $email)))
+    {
+        return false;
+    }    
+    
+    $token = new UsersTokens($user['id']);
+
+    return $token->generate();
+}
+
+function validateRecoverLink($link) {
+    $token = new UsersTokens();
+    $token->findByField('token', $link);
+}
+
 function findByField($field, $value)
 {
     // @var array $users

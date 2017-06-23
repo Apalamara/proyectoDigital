@@ -7,15 +7,16 @@ if (isLoggedIn())
 }
 
 $errors = [];
-if($_GET)
+if($_POST)
 {
-	if(!($token = validateRecoverLink($_GET['token'])))
+	if(!($token = getRecoverLink($_POST['email'])))
 	{
 		$errors[] = 'El email no se encuentra en nuestra base de datos';
 	}
 	else
 	{
-		//magik login (token['userId'])
+		header('location: recover-email.php?token=' . $token);
+		exit;
 	}
 }
 

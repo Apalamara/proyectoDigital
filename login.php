@@ -56,7 +56,7 @@
 					<input type="submit" class="btn btn-register" value="Iniciar Sesión">
 
 					<div class="legal-text">
-						<p><a href="recover-password.php">Recuperar contraseña</a></p>
+						<p><a href="recover-form.php">Recuperar contraseña</a></p>
 					</div>
 				</form>
 			</div>
