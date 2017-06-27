@@ -29,36 +29,39 @@
 				<h4>¿Todavía no formás parte? <a href="register.php">Creá tu cuenta</a></h4>
 			</div>
 
-			<?php
-				if($errors) { ?>
-					<div class="alert alert-danger">
-					<?php foreach($errors as $error) {
-						echo $error . '<br>';
-					}?>
+			<?php if($errors) { ?>
+				<div class="row">		
+					<div class="col-6 col-sm-12 col-centered">
+						<div class="alert alert-danger">
+							<?php foreach($errors as $error) : ?>
+								<?php echo $error ?><br>
+							<?php endforeach; ?>
+						</div>
 					</div>
+				</div>
 			<?php } ?>
 
 			<!--Empieza el form de registro -->
 			<div class="pad-left pad-right pad-half-top">
 				<form class="form-login" action="" method="post">
-						<div class="form-group">
-							<label for="email">Email</label>
-							<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="<?php echo $email; ?>">
-						</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="text" name="email" class="form-control" id="email" placeholder="mmouse@disney.com" value="<?php echo $email; ?>">
+					</div>
 
-						<div class="form-group">
-							<label for="password">Contraseña</label>
-							<input type="password" name="password" class="form-control" id="password" placeholder="Ingrese Contraseña">
-						</div>
+					<div class="form-group">
+						<label for="password">Contraseña</label>
+						<input type="password" name="password" class="form-control" id="password" placeholder="Ingrese Contraseña">
+					</div>
 
 					<label class="terms"><input type="checkbox" name="remember_me"> Recordarme</label>
 
 					<input type="submit" class="btn btn-register" value="Iniciar Sesión">
 
-					<div class="legal-text">
-						<p><a href="recover-form.php">Recuperar contraseña</a></p>
-					</div>
 				</form>
+				<div class="legal-text">
+					<p><a href="recover-form.php">¿Olvidaste la contraseña?</a></p>
+				</div>
 			</div>
 		</div>
 	</section>

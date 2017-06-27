@@ -30,9 +30,9 @@ $email = $_SESSION['user']['email'] ?? null;
 <main>
 	<section class="user-form">
 		<div class="container">
-			<h2 class="pad-left pad-right">Completá los datos y te enviaremos un e-mail</h2>
+			<h2 class="pad-left pad-right">¿Olvidaste la contraseña?</h2>
 			<div class="legal-text">
-				<h4>¿Ya te acordaste la contraseña? <a href="login.php">Iniciá Sesión</a></h4>
+				<h4>Ingresá tu email y te enviaremos instrucciones para reiniciarla.</h4>
 			</div>
 
 			<?php if($errors) { ?>
@@ -52,13 +52,14 @@ $email = $_SESSION['user']['email'] ?? null;
 				<form class="form-register" action="" method="post">
 
 					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="email" name="email" class="form-control" id="email" value="">
+						<input type="email" name="email" class="form-control" id="email" placeholder="Email" ="">
 						<!--<i class="icon-mail-alt"></i>-->
 					</div>
 
 					<input type="submit" class="btn btn-register" value="Recuperar mi contraseña">
-					
+					<div class="legal-text">
+						<p>¿Ya te acordaste la contraseña? <a href="login.php">Iniciá Sesión</a></p>
+					</div>
 				</form>
 			</div>
 

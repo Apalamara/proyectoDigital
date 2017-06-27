@@ -3,6 +3,8 @@ require_once('token.php');
 
 Class UsersTokens {
 	const USERS_TOKENS_FILE = __DIR__ . '/../data/usersTokens.json';
+
+	/* @var string - relative date/time format */
 	const DEFAULT_EXPIRATION_TIME = '+5 minutes';
 	
 	private $userId;
