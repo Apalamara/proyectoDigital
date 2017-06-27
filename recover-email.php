@@ -20,17 +20,7 @@ $token = $_GET['token'];
 			</div>
 
 			<div class="pad-left pad-right pad-half-top">
-				<!--Empieza el form de registro -->
-				<form class="form-register" action="" method="post">
-
-					<div class="form-group">
-						<label for="email">link</label>
-						<a href="recover-password.php?token=<?php echo $token ?>">recuperar password</a>
-					</div>
-
-					<input type="submit" class="btn btn-register" value="Recuperar mi contraseña">
-					
-				</form>
+				<a class="btn btn-register" href="recover-password.php?token=<?php echo $token ?>">recuperar password</a>
 			</div>
 
 		</div>

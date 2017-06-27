@@ -9,13 +9,15 @@ if (isLoggedIn())
 $errors = [];
 if($_POST)
 {
-	if(!($token = getRecoverLink($_POST['email'])))
+	$user = findByField('email', $_POST['email']);
+	if(!$user)
 	{
 		$errors[] = 'El email no se encuentra en nuestra base de datos';
 	}
 	else
 	{
-		header('location: recover-email.php?token=' . $token);
+		$token = new UsersTokens($user['id']);
+		header('location: recover-email.php?token=' . $token->generate());
 		exit;
 	}
 }
@@ -34,10 +36,14 @@ $email = $_SESSION['user']['email'] ?? null;
 			</div>
 
 			<?php if($errors) { ?>
-				<div class="alert alert-danger">
-					<?php foreach($errors as $error) {
-						echo $error . '<br>';
-					}?>
+				<div class="row">				
+					<div class="col-6 col-centered">
+						<div class="alert alert-warning">
+							<?php foreach($errors as $error) {
+								echo $error . '<br>';
+							}?>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 

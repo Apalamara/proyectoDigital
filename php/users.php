@@ -1,5 +1,6 @@
 <?php
 require_once('./php/files.php');
+require_once('./php/usersTokens.php');
 
 define('USERS_FILE', __DIR__ . '/../data/users.json');
 define('USERS_IMAGES_DIR', __DIR__ . '/../data/users/images/');
@@ -133,20 +134,21 @@ function validateProfileForm(array $fields, array $files)
     return $errors;
 }
 
-function getRecoverLink($email) {
+function generateRecoverToken($email) {
     if(!($user = findByField('email', $email)))
     {
         return false;
+    } 
+    else 
+    {
+        $token = new UsersTokens($user['id']);
+        return $token->generate();
     }    
     
-    $token = new UsersTokens($user['id']);
-
-    return $token->generate();
 }
 
-function validateRecoverLink($link) {
-    $token = new UsersTokens();
-    $token->findByField('token', $link);
+function validateRecoverToken($link) {
+    return UsersTokens::findByField('token', $link);
 }
 
 function findByField($field, $value)
@@ -365,6 +367,16 @@ function autoLogin()
         {
             saveSession($user);
         }
+    }
+
+}
+
+function autoLoginByUserId($userId)
+{
+    //chequear si ya esta logueado
+    if($user = findByField('id', $userId))
+    {
+        saveSession($user);
     }
 
 }
