@@ -510,6 +510,7 @@ body.page-faq .menu-item-faq a {
 /* Home / index.php
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+body.page-home main { padding-top: 0; }
 
 section.search {
   display: block;
