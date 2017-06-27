@@ -2,7 +2,7 @@
 <?php $bodyClass = 'page-faq' ?>
 <?php require_once('header.php'); ?>
 <main>
-	<section class="questions pad-top">
+	<section class="questions">
 		<div class="container">
 			<h2>¡Gracias por registrarte!</h2>
 			<article class="question txt-center">

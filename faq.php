@@ -2,7 +2,7 @@
 <?php $bodyClass = 'page-faq menu-inverse' ?>
 <?php require_once('header.php'); ?>
 <main>
-	<section class="questions pad-top">
+	<section class="questions">
 		<div class="container">
 			<h2>Preguntas frecuentes</h2>
 			<div class="row">
