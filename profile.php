@@ -26,7 +26,7 @@ $id = $_SESSION['user']['id'];
 <?php require_once('header.php'); ?>
 <main>
 	<section class="user-form">
-		<div class="container pad-top pad-bottom">
+		<div class="container">
 			<?php if($errors) { ?>
 				<div class="alert alert-danger">
 					<?php foreach($errors as $error) {

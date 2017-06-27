@@ -22,7 +22,7 @@
 <?php require_once('header.php'); ?>
 
 <main>
-	<section class="user-form pad-top">
+	<section class="user-form">
 		<div class="container">
 			<h2 class="pad-left pad-right">Iniciar Sesión</h2>
 			<div class="legal-text">

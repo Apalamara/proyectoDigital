@@ -31,7 +31,7 @@
 									<?php if (isLoggedIn()) { ?>
 									<li class="menu-item-user">
 										<a href="profile.php">
-											<img class="avatar avatar-sm" src="<?php echo USERS_IMAGES_PATH . $_SESSION['user']['image'] ?>" alt="<?php echo $_SESSION['user']['first_name']; ?>"> 
+											<img class="avatar avatar-sm" src="<?php echo USERS_IMAGES_PATH . $_SESSION['user']['image'] ?>" alt="<?php echo $_SESSION['user']['first_name']; ?>">
 											<?php echo $_SESSION['user']['first_name']; ?>
 										</a>
 									</li>

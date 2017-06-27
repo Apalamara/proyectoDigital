@@ -222,7 +222,7 @@ nav ul {
 .col-12 { width: 100.00% }
 
 /* Grid with no padding */
-.row-no-pad > [class*='col-'] { padding-right: 0; }
+.row-no-pad > [class*='col-'] { padding-right: 0; padding-left: 0;}
 
 .module {
   padding: 20px;
@@ -384,9 +384,7 @@ section.offices { background-color: white; }
  * https://stackoverflow.com/questions/12873390/hide-text-in-h1-tag-but-not-the-image
  */
 
-main {
-  margin-top: 80px;
-}
+header { height: 80px; }
 
 header h1 { 
   margin: 0;
@@ -396,6 +394,7 @@ header h1 img {
   margin: 12px 0 0;
 }
 
+main { padding: 36px 0; }
 
 /* Mobile menú */
 
@@ -440,41 +439,18 @@ header h1 img {
 /*Menu en media queries*/
 
 @media (min-width: 769px) {
-  .menu-mobile {
-    display: none;
-  }
 
-  main {
-    margin-top: 90px;
-    margin-bottom: 0;
-  }
+  header { height: 90px; }
 
-  .navbarheader {
-    /*width: 100%;
-    background-color: #fff;*/
-    height: 90px;
-    /*display: inline-block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);*/
-  }
+  .menu-mobile { display: none; }
+
+  .navbarheader { height: 90px; }
 
   .menus {
     width: 100%;
     position: initial;
     margin:auto;
   }
-
-  /*.headernav {
-    display: inline-block;
-    width: 100%;
-  }*/
-
-  /*.headerlogo {
-    float: left;
-  }*/
 
   .headernav .headerlogo img{
     width: 120px;
@@ -648,7 +624,6 @@ body.page-home .search select {
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 footer {
-  overflow: hidden;
   background-color: #151515;
   color: white;
 }
@@ -751,7 +726,9 @@ body.page-faq {
 /* User forms - login / register / recover password
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-section.user-form { background-color: rgba(181, 181, 181, 0.30); }
+body.page-login,
+body.page-register,
+body.page-profile { background-color: rgba(181, 181, 181, 0.30); }
 
 section.user-form h2 {
   font-weight: normal;

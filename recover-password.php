@@ -25,7 +25,7 @@ $email = $_SESSION['user']['email'] ?? null;
 <?php $bodyClass = 'page-profile menu-inverse' ?>
 <?php require_once('header.php'); ?>
 <main>
-	<section class="user-form pad-top pad-bottom">
+	<section class="user-form">
 		<div class="container">
 			<h2 class="pad-left pad-right">Completá los datos y te enviaremos un e-mail</h2>
 			<div class="legal-text">
