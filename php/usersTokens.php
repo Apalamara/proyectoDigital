@@ -7,18 +7,25 @@ Class UsersTokens {
 	/* @var string - relative date/time format */
 	const DEFAULT_EXPIRATION_TIME = '+5 minutes';
 	
+	/** @var int */
 	private $userId;
+	/** @var string */
 	private $token;
+	/** @var string */
 	private $expitationDate;
 
-	public function __construct(int $userId) {
+	public function __construct(int $userId) 
+	{
 		$this->userId = $userId;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function generate() :string
 	{
 		$token = new Token;
-		$this->token = $token->generate();
+		$this->token = $token->getValue();
 
 		$date = new DateTime("now");
 		$date->modify(self::DEFAULT_EXPIRATION_TIME);
@@ -29,7 +36,9 @@ Class UsersTokens {
 		return $this->token;
 	}
 
-
+	/**
+	 * @return void
+	 */
 	private function save()
 	{
 		// Sólo puede haber un token activo por usuario
@@ -49,7 +58,12 @@ Class UsersTokens {
         $this->saveUsersTokenFile($tokens);
 	}
 
-	public static function findByField($field, $value)
+	/**
+	 * @param string $field
+	 * @param mixed $value
+	 * @return array
+	 */
+	public static function findByField(string $field, $value): array
 	{
 	    /* @var array $users */
 	    $tokens = self::list();
@@ -64,7 +78,11 @@ Class UsersTokens {
 	    return false;
 	}
 
-	private function deleteByUserId($userId)
+	/**
+	 * @param int $userId
+	 * @return void
+	 */
+	private function deleteByUserId(int $userId)
 	{
 	    // @var array $tokens
 	    $tokens = $this->list();
@@ -77,7 +95,10 @@ Class UsersTokens {
 	    }
 	}
 
-	private function list()
+	/**
+	 * @return array
+	 */
+	private function list(): array
 	{
 
 	    if (!file_exists(self::USERS_TOKENS_FILE))
@@ -92,6 +113,11 @@ Class UsersTokens {
 	    return $tokens['tokens'];
 	}
 
+
+	/**
+	 * @param array $tokens
+	 * @return void
+	 */	
 	private	function saveUsersTokenFile(array $tokens = [])
 	{
 	    $content = [
