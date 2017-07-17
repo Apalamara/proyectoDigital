@@ -1,8 +1,8 @@
 <?php
 
-namespace proyectoDigital\Entities;
+namespace OfficeGuru\Entities;
 
-use proyectoDigital\Entities\Token;
+use OfficeGuru\Entities\Token;
 
 class UserToken
 {

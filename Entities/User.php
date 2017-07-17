@@ -1,6 +1,6 @@
 <?php
 
-namespace proyectoDigital\Entities;
+namespace OfficeGuru\Entities;
 
 class User
 {

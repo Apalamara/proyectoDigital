@@ -1,5 +1,5 @@
 <?php
-namespace proyectoDigital\Controllers
+namespace OfficeGuru\Controllers
 
 class UserController
 {

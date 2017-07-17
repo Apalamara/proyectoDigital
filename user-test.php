@@ -1,8 +1,8 @@
 <?php
 
-require_once('Entities\User.php');
+require_once('Entities/User.php');
 
-use proyectoDigital\Entities\User;
+use OfficeGuru\Entities\User;
 
 $myUser = new User('Juan', 'Pérez', 'juan@perez.com', 'juan@perez.com');
 $myUser
