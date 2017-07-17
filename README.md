@@ -5,12 +5,21 @@ Acá vamos a poner todos los archivos del proyecto
 
 ### Convenciones del proyecto
 
+#### General
 * Todos los nombres deberán ir en inglés
-* Los comentarios de código pueden hacerse en español
-* Todos los nombres de los archivos deberán ir en minúsculas y los espacios reemplazados por guiones (-)
-* Todos los nombres de los inputs de Html deberán ir en snake_case
-* Todos los nombres de variables o funciones de Php deberán ir en camelCase
-* Todos los nombres de las clases de css deberán ir en minúsculas y los espacios reemplazados por guiones (-)
+* Los comentarios del código pueden hacerse en español o inglés
+
+#### HTML y CSS 
+* Los nombres de los archivos deberán ir en minúsculas y los espacios reemplazados por guiones (-)
+* Los nombres de los inputs de Html deberán ir en snake_case
+* Los nombres de las clases de css deberán ir en minúsculas y los espacios reemplazados por guiones (-)
+
+#### PHP
+* Los nombres de las clases y sus archivos deberán ir en Singular y UpperCamelCase
+* Para los comentarios de las clases y funciones se utilizará el formato PhpDoc
+* Los nombres de los archvos de vistas deberán en minúsculas y los espacios reemplazados por guiones (-) 
+* Los nombres de variables y funciones de PHP deberán ir en camelCase
+
 
 ### Links útiles
 
