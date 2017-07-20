@@ -37,7 +37,7 @@ abstract class Json
 	/**
 	 * This function will overwrite any existing contents of the file 
 	 *
-	 * @returns void
+	 * @return void
 	 */
 	protected function write(array $entities = [])
 	{

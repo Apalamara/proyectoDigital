@@ -10,3 +10,23 @@ $myUser
 	->setImage('juan.png');
 
 print_r($myUser);
+
+/*
+
+if ($_POST) {
+	$myUserForm = new NewUserForm($_POST);
+	if ($myUserForm->isValid()) {
+
+		$myUser = new User($_POST['name'], etc);
+		$myUser->setImage($_POST['image']);
+
+		$myUserRepo = new UserRepository();
+		$myUserRepo->insert($myUser);
+		$myUserRepo->getLastInsertedID;
+	}
+	else
+	{
+		$viewErrors = $myUserForm->getMessages();
+	}
+}
+/*
