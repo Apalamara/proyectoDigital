@@ -1,5 +1,7 @@
 <?php
-namespace OfficeGuru\Forms
+namespace OfficeGuru\Forms;
+
+use OfficeGuru\Repositories\UserRepository;
 
 class NewUserForm
 {
@@ -31,23 +33,24 @@ class NewUserForm
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    public function isValid() :boolean
+    public function isValid(): bool
     {
         $this->messages = [];
+
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
         {
             $this->messages['email'] = 'Debe ingresar un email válido';
         } 
-        /*
-        Requires repository
-        
-        elseif (findByField('email', $this->email))
+        else
         {
-            $this->messages['email']  = 'El mail está duplicado';
+            $myUserRepo = new UserRepository;
+            if ($myUserRepo->fetchByField('email', $this->email)) {
+                $this->messages['email']  = 'El mail ya se encuentra registrado';
+            }
         }
-        */
+
         if(trim($this->firsName) == '')
         {
             $this->messages['first_name'] = 'Debe ingresar un nombre';
@@ -65,10 +68,10 @@ class NewUserForm
         }
         elseif($this->password != $this->passwordConfirm)
         {
-            $this->messages['password_confirm'] = 'La contraseña y su confirmacióm deben coincidir';
+            $this->messages['password_confirm'] = 'La contraseña y su confirmación deben coincidir';
         }
 
-        return empty($messages);
+        return empty($this->messages);
     }
 
     /**

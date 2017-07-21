@@ -4,26 +4,44 @@ if (isLoggedIn())
 {
 	header('location: index.php');
 	exit;
-} 
-?>
-<?php
-	// Tener en cuenta el name del input
-	$email = $_POST['email'] ?? null;
-	$firstName = $_POST['first_name'] ?? null;
-	$lastName = $_POST['last_name'] ?? null;
-	$newsletter = $_POST['newsletter'] ?? null;
+}
 
-	$errors = [];
-	if($_POST)
+$email = $_POST['email'] ?? null;
+$firstName = $_POST['first_name'] ?? null;
+$lastName = $_POST['last_name'] ?? null;
+$newsletter = $_POST['newsletter'] ?? null;
+
+$viewMessages = [];
+
+if ($_POST)
+{
+	/* @todo migrar a un controller */
+	$myUserForm = new OfficeGuru\Forms\NewUserForm($_POST);
+	if ($myUserForm->isValid()) 
 	{
-		if(!($errors = register($_POST)))
-		{
-			header('location: welcome.php');
-			exit;
-		}
+		$myUser = new OfficeGuru\Entities\User($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password']);
+
+		$myUserRepo = new OfficeGuru\Repositories\UserRepository();
+		$myUserRepo->insert($myUser);
+
+		/* @todo: Log user in */
 	}
-	// Formatea el print-r
-	// echo '<pre>' . print_r ($_POST, true) . '</pre>';
+	else
+	{
+		$viewMessages = $myUserForm->getMessages();
+	}
+}
+/*
+$errors = [];
+if($_POST)
+{
+	if(!($errors = register($_POST)))
+	{
+		header('location: welcome.php');
+		exit;
+	}
+}
+*/
 ?>
 <?php $bodyClass = 'page-register menu-inverse' ?>
 <?php require_once('header.php'); ?>
@@ -35,11 +53,10 @@ if (isLoggedIn())
 				<h4>¿Ya tenés cuenta? <a href="login.php">Iniciá Sesión</a></h4>
 			</div>
 
-			<?php
-				if($errors) { ?>
+			<?php if($viewMessages) { ?>
 					<div class="alert alert-danger">
-					<?php foreach($errors as $error) {
-						echo $error . '<br>';
+					<?php foreach($viewMessages as $message) {
+						echo $message . '<br>';
 					}?>
 					</div>
 			<?php } ?>
@@ -72,7 +89,7 @@ if (isLoggedIn())
 
 					<div class="form-group">
 						<label for="pass_confirm">Confirmar Contraseña</label>
-						<input type="password" name="pass_confirm" class="form-control" id="pass_confirm" placeholder="Confirmar Contraseña">
+						<input type="password" name="password_confirm" class="form-control" id="password_confirm" placeholder="Confirmar Contraseña">
 					</div>
 
 					<input type="submit" class="btn btn-register" value="Registrarme">

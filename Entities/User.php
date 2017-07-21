@@ -112,15 +112,15 @@ class User
 
 	/** 
 	 * @param string $password
-	 * @return boolean
+	 * @return bool
 	 */
-	public function verifyPassword(string $password): boolean
+	public function verifyPassword(string $password): bool
 	{
 		return password_verify($password, $this->password);;
 	}
 
-	/** @return string */
-	public function getImage(): string
+	/** @return string|null */
+	public function getImage(): ?string
 	{
 		return $this->image;
 	}

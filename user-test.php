@@ -1,15 +1,15 @@
 <?php
 
-require_once('Entities/User.php');
+require_once('php/requires.php');
 
 use OfficeGuru\Entities\User;
+use OfficeGuru\Repositories\UserRepository;
 
 $myUser = new User('Juan', 'Pérez', 'juan@perez.com', 'juan@perez.com');
-$myUser
-	->setId(1)
-	->setImage('juan.png');
+$myUser->setImage('juan.png');
 
-print_r($myUser);
+$myUserRepo = new UserRepository();
+$myUserRepo->insert($myUser);
 
 /*
 
@@ -29,4 +29,4 @@ if ($_POST) {
 		$viewErrors = $myUserForm->getMessages();
 	}
 }
-/*
+*/

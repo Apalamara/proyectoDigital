@@ -2,13 +2,15 @@
 
 namespace OfficeGuru\Repositories;
 
+use \PDO;
+
 abstract class MySQL
 {
     CONST DB_DRIVER = 'mysql';
     CONST DB_HOST = 'localhost';
-    CONST DB_NAME = 'officeGuru';
-    CONST DB_USERNAME = 'officeGuru';
-    CONST DB_PASSWORD = '';
+    CONST DB_NAME = 'office_guru';
+    CONST DB_USERNAME = 'og_user';
+    CONST DB_PASSWORD = '98BtsDawHsUunhDt';
 
     /** @var PDO */
     protected $conn;
@@ -24,7 +26,7 @@ abstract class MySQL
     protected function connect()
     {
         $this->conn = new PDO(
-            'mysql:host=localhost;dbname=officeGuru;charset=utf8',
+            'mysql:host=localhost;dbname=office_guru;charset=utf8mb4',
             self::DB_USERNAME,
             self::DB_PASSWORD,
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]

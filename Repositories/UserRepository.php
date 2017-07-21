@@ -3,6 +3,7 @@
 namespace OfficeGuru\Repositories;
 
 use OfficeGuru\Entities\User;
+use \PDO;
 
 class UserRepository extends MySQL
 {
@@ -18,11 +19,14 @@ class UserRepository extends MySQL
             $row['first_name'],
             $row['last_name'],
             $row['email'],
-            $row['password'],
+            $row['password']
         );
 
-        $entity->setId($row['id']);
-        $entity->setImage($row['image']);
+        $entity->setId($row['user_id']);
+        if($row['image'])
+        {
+            $entity->setImage($row['image']);
+        }
 
         return $entity;
     }
@@ -33,7 +37,7 @@ class UserRepository extends MySQL
      * @todo como documento lo de abajo
      * @return User | null
      */
-    function fetchByField(string $field, $value)
+    function fetchByField(string $field, $value): ?User
     {
         $stmt = $this->conn->prepare("
             SELECT {$this->name}.*
@@ -52,49 +56,38 @@ class UserRepository extends MySQL
 
     /**
      * @param User $user
-     * @return boolean
+     * @return bool
      */
-    function insert(User $User)
+    function insert(User $user)
     {
         $this->conn->beginTransaction();
-        try {
-            $stmt = $this->conn->prepare('
-                INSERT INTO users (
+        try 
+        {
+            $stmt = $this->conn->prepare("
+                INSERT INTO {$this->name} (
                     first_name, last_name, email, password, image
                 ) VALUES (
-                    :nombre, :apellido, :email, :password, :username, 
-                    :fecha_nacimiento, :sexo, :descripcion, :avatar
+                    :first_name, :last_name, :email, :password, :image
                 );
-            ');
+            ");
 
-            $stmt->bindValue(':first_name', $user->getNombre(), PDO::PARAM_STR);
-            $stmt->bindValue(':last_name', $user->getApellido(), PDO::PARAM_STR);
+            $stmt->bindValue(':first_name', $user->getFirstName(), PDO::PARAM_STR);
+            $stmt->bindValue(':last_name', $user->getLastName(), PDO::PARAM_STR);
             $stmt->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
             $stmt->bindValue(':password', $user->getPassword(), PDO::PARAM_STR);
-                ':avatar',
-                $user->getAvatar() ?? null,
-                $user->getAvatar() ? PDO::PARAM_STR : PDO::PARAM_NULL
+            $stmt->bindValue(
+                ':image',
+                $user->getImage() ?? null,
+                $user->getImage() ? PDO::PARAM_STR : PDO::PARAM_NULL
             );
 
             $stmt->execute();
-
-            $id = $this->conn->lastInsertId();
-            $stmt = $this->conn->prepare('
-                INSERT INTO categoria_user VALUES (:user, :categoria);
-            ');
-            $stmt->bindValue(':user', $id, PDO::PARAM_INT);
-
-            /** @var Categoria $categoria */
-            foreach($categorias as $categoria)
-            {
-                $stmt->bindValue(':categoria', $categoria->getId(), PDO::PARAM_INT);
-                $stmt->execute();
-            }
-
             $this->conn->commit();
 
             return true;
-        } catch(PDOException $e) {
+        } 
+        catch(PDOException $e) 
+        {
             $this->conn->rollBack();
 
             return false;
