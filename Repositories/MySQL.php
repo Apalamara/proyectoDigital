@@ -9,8 +9,8 @@ abstract class MySQL
     CONST DB_DRIVER = 'mysql';
     CONST DB_HOST = 'localhost';
     CONST DB_NAME = 'office_guru';
-    CONST DB_USERNAME = 'og_user';
-    CONST DB_PASSWORD = '98BtsDawHsUunhDt';
+    CONST DB_USERNAME = 'root';
+    CONST DB_PASSWORD = '';
 
     /** @var PDO */
     protected $conn;

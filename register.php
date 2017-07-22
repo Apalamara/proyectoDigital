@@ -24,6 +24,7 @@ if ($_POST)
 		$myUserRepo = new OfficeGuru\Repositories\UserRepository();
 		$myUserRepo->insert($myUser);
 
+		header('location: welcome.php');
 		/* @todo: Log user in */
 	}
 	else

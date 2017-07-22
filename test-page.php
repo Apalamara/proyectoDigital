@@ -1,8 +1,13 @@
+<?php require_once('./php/requires.php'); ?>
 <?php $bodyClass = 'page-home'; ?>
 <?php require_once('header.php'); ?>
 <main>
-	<section class="principal">
+	<section class="grilla">
 		<div class="container">
+			<div class="row">
+				<h2 style="background: tomato; display: inline-block;">Grillas</h2>
+				<h2 style="background: tomato; display: inline-block; height: 3em;">Grillas</h2>
+			</div>
 			<div class="row">
 				<div class="col-1">
 					<div class="module">col-1</div>

@@ -9,6 +9,7 @@
 	<!-- Css utilizados -->
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/hamburgers.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -24,7 +25,7 @@
 								<h1 class="logo">Office Gurú<a href="index.php"><img src="img/logo.png" alt="Office Guru"></a></h1>
 							</div>
 
-							<div class="headernav-menu">	
+							<div id="headernav-menu" class="headernav-menu">	
 								<ul>
 									<li class="menu-item-host"><a href="register.php">Convertite en gurú</a></li>
 									<li class="menu-item-faq"><a href="faq.php">FAQ</a></li>
@@ -43,12 +44,20 @@
 								</ul>
 							</div>
 							
-							<img class="menu-mobile" src="img/menu.png">
+							
+							<button id="menu-mobile" class="hamburger menu-mobile" type="button">
+							  <span class="hamburger-box">
+							    <span class="hamburger-inner"></span>
+							  </span>
+							</button>
+							<!--<img id="menu-mobile" class="menu-mobile" src="img/menu.png"-->
 						</nav>
 
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<script type="text/javascript" src="js/example.js"></script>
 
 	</header>
