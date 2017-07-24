@@ -4,7 +4,7 @@ namespace OfficeGuru\Forms;
 
 use OfficeGuru\Repositories\UserRepository;
 
-class NewUserForm extends Form
+class UserRegisterForm extends Form
 {
     /** @var int */
     const PASSWORD_MIN_LENGTH = 8;
@@ -37,13 +37,14 @@ class NewUserForm extends Form
      */
     public function isValid(): bool
     {
+        $myUserRepo = new UserRepository;
+
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
         {
             $this->addMessage(array('email' => 'Debe ingresar un email válido'));
         } 
         else
         {
-            $myUserRepo = new UserRepository;
             if ($myUserRepo->fetchByField('email', $this->email)) {
                 $this->addMessage(array('email' => 'El mail ya se encuentra registrado'));
             }

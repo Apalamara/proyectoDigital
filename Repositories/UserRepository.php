@@ -37,7 +37,7 @@ class UserRepository extends MySQL
      * @todo como documento lo de abajo
      * @return User | null
      */
-    function fetchByField(string $field, $value): ?User
+    function fetchByField(string $field, $value)//: ?User // Requires PHP 7.1
     {
         $stmt = $this->conn->prepare("
             SELECT {$this->name}.*

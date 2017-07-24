@@ -120,7 +120,7 @@ class User
 	}
 
 	/** @return string|null */
-	public function getImage(): ?string
+	public function getImage()//: ?string // Requires PHP 7.1
 	{
 		return $this->image;
 	}

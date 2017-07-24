@@ -5,18 +5,16 @@
 		header('location: index.php');
 		exit;
 	} 
-?>
-<?php
-	$email = $_POST['email'] ?? null;
-	$errors = [];
-	if($_POST)
-	{
-		if(!($errors = login($_POST)))
-		{
-			header('location: index.php');
-			exit;
-		}
-	}
+
+$email = $_POST['email'] ?? null;
+
+if ($_POST)
+{
+	$myUserCtrl = new OfficeGuru\Controllers\UserController();
+	$myUserCtrl->loginAction($_POST);
+}
+
+$viewMessages = $GLOBALS['view']['messages'] ?? [];
 ?>
 <?php $bodyClass = 'page-login menu-inverse'; ?>
 <?php require_once('header.php'); ?>
@@ -29,12 +27,12 @@
 				<h4>¿Todavía no formás parte? <a href="register.php">Creá tu cuenta</a></h4>
 			</div>
 
-			<?php if($errors) { ?>
+			<?php if($viewMessages) { ?>
 				<div class="row">		
 					<div class="col-6 col-sm-12 col-centered">
 						<div class="alert alert-danger">
-							<?php foreach($errors as $error) : ?>
-								<?php echo $error ?><br>
+							<?php foreach($viewMessages as $field => $message) : ?>
+								<?php echo $message ?><br>
 							<?php endforeach; ?>
 						</div>
 					</div>
