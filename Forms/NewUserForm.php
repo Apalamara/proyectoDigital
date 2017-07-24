@@ -1,9 +1,10 @@
 <?php
+
 namespace OfficeGuru\Forms;
 
 use OfficeGuru\Repositories\UserRepository;
 
-class NewUserForm
+class NewUserForm extends Form
 {
     /** @var int */
     const PASSWORD_MIN_LENGTH = 8;
@@ -18,18 +19,17 @@ class NewUserForm
     private $password;
     /** @var string */
     private $passwordConfirm;
-    /** @var array */
-    private $messages;
 
 
     public function __construct($post)
     {
+        parent::__construct();
+
         $this->email = $post['email'] ?? '';
         $this->firsName = $post['first_name'] ?? '';
         $this->lastName = $post['last_name'] ?? '';
         $this->password = $post['password'] ?? '';
-        $this->passwordConfirm = $post['password_confirm'] ?? '';
-        $this->messages = [];
+        $this->passwordConfirm = $post['password_confirm'] ?? '';        
     }
 
     /**
@@ -37,47 +37,39 @@ class NewUserForm
      */
     public function isValid(): bool
     {
-        $this->messages = [];
-
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
         {
-            $this->messages['email'] = 'Debe ingresar un email válido';
+            $this->addMessage(array('email' => 'Debe ingresar un email válido'));
         } 
         else
         {
             $myUserRepo = new UserRepository;
             if ($myUserRepo->fetchByField('email', $this->email)) {
-                $this->messages['email']  = 'El mail ya se encuentra registrado';
+                $this->addMessage(array('email' => 'El mail ya se encuentra registrado'));
             }
         }
 
         if(trim($this->firsName) == '')
         {
-            $this->messages['first_name'] = 'Debe ingresar un nombre';
+            $this->addMessage(array('first_name' => 'Debe ingresar un nombre'));
         }
 
         if(trim($this->lastName) == '')
         {
-            $this->messages['last_name'] = 'Debe ingresar un apellido';
+            $this->addMessage(array('last_name' => 'Debe ingresar un apellido'));
         }
 
 
         if(strlen($this->password) < PASSWORD_MIN_LENGTH)
         {
-            $this->messages['password'] = 'La contraseña debe tener al menos ' . PASSWORD_MIN_LENGTH . ' caracteres';
+            $this->addMessage(array('password' => 'La contraseña debe tener al menos ' . PASSWORD_MIN_LENGTH . ' caracteres'));
         }
         elseif($this->password != $this->passwordConfirm)
         {
-            $this->messages['password_confirm'] = 'La contraseña y su confirmación deben coincidir';
+            $this->addMessage(array('password_confirm' => 'La contraseña y su confirmación deben coincidir'));
         }
 
-        return empty($this->messages);
+        return empty($this->getMessages());
     }
 
-    /**
-     * @return array 
-     */
-    public function getMessages() {
-        return $this->messages;
-    }
 }

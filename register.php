@@ -11,38 +11,13 @@ $firstName = $_POST['first_name'] ?? null;
 $lastName = $_POST['last_name'] ?? null;
 $newsletter = $_POST['newsletter'] ?? null;
 
-$viewMessages = [];
-
 if ($_POST)
 {
-	/* @todo migrar a un controller */
-	$myUserForm = new OfficeGuru\Forms\NewUserForm($_POST);
-	if ($myUserForm->isValid()) 
-	{
-		$myUser = new OfficeGuru\Entities\User($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password']);
-
-		$myUserRepo = new OfficeGuru\Repositories\UserRepository();
-		$myUserRepo->insert($myUser);
-
-		header('location: welcome.php');
-		/* @todo: Log user in */
-	}
-	else
-	{
-		$viewMessages = $myUserForm->getMessages();
-	}
+	$myUserCtrl = new OfficeGuru\Controllers\UserController();
+	$myUserCtrl->registerAction($_POST);
 }
-/*
-$errors = [];
-if($_POST)
-{
-	if(!($errors = register($_POST)))
-	{
-		header('location: welcome.php');
-		exit;
-	}
-}
-*/
+
+$viewMessages = $GLOBALS['view']['messages'] ?? [];
 ?>
 <?php $bodyClass = 'page-register menu-inverse' ?>
 <?php require_once('header.php'); ?>
@@ -56,7 +31,7 @@ if($_POST)
 
 			<?php if($viewMessages) { ?>
 					<div class="alert alert-danger">
-					<?php foreach($viewMessages as $message) {
+					<?php foreach($viewMessages as $field => $message) {
 						echo $message . '<br>';
 					}?>
 					</div>
