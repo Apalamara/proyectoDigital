@@ -105,7 +105,17 @@ class User
 	 */
 	public function setPassword(string $password): User
 	{
-		$this->password = password_hash($password, PASSWORD_DEFAULT);
+		/* Don't re-hash the password if it is already a hash */
+    	$passwordInfo = password_get_info($password);
+
+    	if($passwordInfo['algo'] == 0)
+    	{
+			$this->password = password_hash($password, PASSWORD_DEFAULT);
+    	}
+    	else
+    	{
+    		$this->password = $password;
+    	}
 
 		return $this;
 	}

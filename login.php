@@ -1,10 +1,10 @@
 <?php require_once('./php/requires.php'); ?>
 <?php 
-	if (isLoggedIn()) 
-	{
-		header('location: index.php');
-		exit;
-	} 
+if (isLoggedIn()) 
+{
+	header('location: index.php');
+	exit;
+} 
 
 $email = $_POST['email'] ?? null;
 

@@ -1,3 +1,11 @@
+<?php
+$myUserCtrl = new OfficeGuru\Controllers\UserController();
+$isLoggedIn = $myUserCtrl->isLoggedIn();
+if ($isLoggedIn) 
+{
+	$myUser = $_SESSION['og_user'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,11 +37,11 @@
 								<ul>
 									<li class="menu-item-host"><a href="register.php">Convertite en gurú</a></li>
 									<li class="menu-item-faq"><a href="faq.php">FAQ</a></li>
-									<?php if (isLoggedIn()) { ?>
+									<?php if ($isLoggedIn) { ?>
 									<li class="menu-item-user">
 										<a href="profile.php">
-											<img class="avatar avatar-sm" src="<?php echo USERS_IMAGES_PATH . $_SESSION['user']['image'] ?>" alt="<?php echo $_SESSION['user']['first_name']; ?>">
-											<?php echo $_SESSION['user']['first_name']; ?>
+											<img class="avatar avatar-sm" src="<?php echo USERS_IMAGES_PATH . $myUser->getImage(); ?>" alt="<?php echo $myUser->getFirstName(); ?>">
+											<?php echo $myUser->getFirstName(); ?>
 										</a>
 									</li>
 									<li class="menu-item-user"><a href="logout.php"><i class="icon-lock"></i> Salir</a></li>

@@ -10,43 +10,45 @@ class UserLoginForm extends Form
 	private $email;
 	/** @var string */
 	private $password;
+	/** @var bool */
+	private $rememberMe;
 
 	public function __construct($post)
 	{
         $this->email = $post['email'] ?? '';
         $this->password = $post['password'] ?? '';
+        $this->rememberMe = false;
+        if (isset($post['remember_me']) && $post['remember_me'] == 'on')
+        {
+        	$this->rememberMe = true;
+        }
 	}
 
     /**
      * @return bool
      */
 	public function isValid(): bool
-	{
-        $myUserRepo = new UserRepository;
-        
+	{        
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
         {
             $this->addMessage(array('email' => 'Debe ingresar un email válido'));
         }
-        else
-        {
-        	$myUser = $myUserRepo->fetchByField('email', $this->email);
-            if (!$myUser) {
-                $this->addMessage(
-                	array('email' => 'El mail no se encuentra registrado en el sitio')
-            	);
-            }
-            else
-            {
-            	if (!$myUser->verifyPassword($this->password)) 
-            	{
-	                $this->addMessage(
-	                	array('password' => 'El password es incorrecto')
-	            	);	
-            	}
-            }
-        }
 
         return empty($this->getMessages());
+	}
+
+	public function getEmail(): string
+	{
+		return $this->email;
+	}
+
+	public function getPassword(): string
+	{
+		return $this->password;
+	}
+
+	public function getRememberMe(): bool
+	{
+		return $this->rememberMe;
 	}
 }
