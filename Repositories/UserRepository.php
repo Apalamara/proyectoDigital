@@ -18,8 +18,7 @@ class UserRepository extends MySQL
         $entity = new User(
             $row['first_name'],
             $row['last_name'],
-            $row['email'],
-            $row['password']
+            $row['email']
         );
 
         $entity->setId($row['user_id']);
@@ -75,6 +74,48 @@ class UserRepository extends MySQL
             $stmt->bindValue(':last_name', $user->getLastName(), PDO::PARAM_STR);
             $stmt->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
             $stmt->bindValue(':password', $user->getPassword(), PDO::PARAM_STR);
+            $stmt->bindValue(
+                ':image',
+                $user->getImage() ?? null,
+                $user->getImage() ? PDO::PARAM_STR : PDO::PARAM_NULL
+            );
+
+            $stmt->execute();
+            $this->conn->commit();
+
+            return true;
+        } 
+        catch(PDOException $e) 
+        {
+            $this->conn->rollBack();
+
+            return false;
+        }
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    function update(User $user)
+    {
+        $this->conn->beginTransaction();
+        try 
+        {
+            $stmt = $this->conn->prepare("
+                UPDATE {$this->name} SET
+                    first_name = ':first_name',
+                    last_name = ':last_name',
+                    email = ':email',
+                    image = ':image'
+                WHERE
+                    user_id = {$user->getId}
+                );
+            ");
+
+            $stmt->bindValue(':first_name', $user->getFirstName(), PDO::PARAM_STR);
+            $stmt->bindValue(':last_name', $user->getLastName(), PDO::PARAM_STR);
+            $stmt->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
             $stmt->bindValue(
                 ':image',
                 $user->getImage() ?? null,

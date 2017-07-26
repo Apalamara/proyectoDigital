@@ -4,6 +4,10 @@ namespace OfficeGuru\Entities;
 
 class User
 {
+	const IMAGE_DEFAULT_FILENAME = 'default.png';
+	const IMAGE_DIR = __DIR__ . '/../data/users/images/';
+	const IMAGE_PATH = './data/users/images/';
+
     /** @var int */
     private $id;
     /** @var string */
@@ -17,12 +21,12 @@ class User
 	/** @var string */
 	private $image;
 
-	public function __construct(string $first_name, string $last_name, string $email, string $password)
+	public function __construct(string $first_name, string $last_name, string $email, $image = self::IMAGE_DEFAULT_FILENAME)
 	{
 		$this->first_name = $first_name;
 		$this->last_name = $last_name;
 		$this->setEmail($email);
-		$this->setPassword($password);
+		$this->setImage($image);
 	}
 
 	/** @return int */

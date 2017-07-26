@@ -1,7 +1,6 @@
-<?php
+<?php 
+
 require_once('./php/requires.php');
 
-logout();
-
-header('location: index.php');
-exit;
+$myUserCtrl = new OfficeGuru\Controllers\UserController();
+$myUserCtrl->logoutAction();

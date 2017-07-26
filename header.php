@@ -1,3 +1,4 @@
+<?php require_once('./php/requires.php'); ?>
 <?php
 $myUserCtrl = new OfficeGuru\Controllers\UserController();
 $isLoggedIn = $myUserCtrl->isLoggedIn();

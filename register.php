@@ -1,10 +1,13 @@
-<?php require_once('./php/requires.php'); ?>
 <?php 
-if (isLoggedIn()) 
+require_once('./php/requires.php');
+
+$myUserCtrl = new OfficeGuru\Controllers\UserController();
+$isLoggedIn = $myUserCtrl->isLoggedIn();
+if (!$isLoggedIn) 
 {
 	header('location: index.php');
 	exit;
-}
+} 
 
 $email = $_POST['email'] ?? null;
 $firstName = $_POST['first_name'] ?? null;
@@ -13,7 +16,6 @@ $newsletter = $_POST['newsletter'] ?? null;
 
 if ($_POST)
 {
-	$myUserCtrl = new OfficeGuru\Controllers\UserController();
 	$myUserCtrl->registerAction($_POST);
 }
 

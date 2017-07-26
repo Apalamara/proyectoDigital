@@ -1,25 +1,23 @@
-<?php require_once('./php/requires.php'); ?>
 <?php 
-if (!isLoggedIn()) 
+require_once('./php/requires.php'); 
+
+$myUserCtrl = new OfficeGuru\Controllers\UserController();
+$maxFileSize = OfficeGuru\Forms\UserProfileForm::IMAGE_MAX_FILESIZE;
+$isLoggedIn = $myUserCtrl->isLoggedIn();
+if (!$isLoggedIn) 
 {
 	header('location: index.php');
 	exit;
 } 
 
-$errors = [];
-if($_POST)
+if ($_POST)
 {
-	if(!($errors = update($_POST, $_FILES)))
-	{
-		$message = ['type' => 'success', 'text' => 'Tu perfil ha sido actualizado'];
-	}
+	$myUserCtrl->profileAction($_POST, $_FILES);
 }
 
-$email = $_SESSION['user']['email'] ?? null;
-$firstName = $_SESSION['user']['first_name'] ?? null;
-$lastName = $_SESSION['user']['last_name'] ?? null;
-$image = $_SESSION['user']['image'] ?? 'default.png';
-$id = $_SESSION['user']['id'];
+$myUser = $_SESSION['og_user'];
+
+$viewMessages = $GLOBALS['view']['messages'] ?? [];
 
 ?>
 <?php $bodyClass = 'page-profile menu-inverse' ?>
@@ -27,16 +25,16 @@ $id = $_SESSION['user']['id'];
 <main>
 	<section class="user-form">
 		<div class="container">
-			<?php if($errors) { ?>
-				<div class="alert alert-danger">
-					<?php foreach($errors as $error) {
-						echo $error . '<br>';
+			<?php if($viewMessages) { ?>
+					<div class="alert alert-danger">
+					<?php foreach($viewMessages as $field => $message) {
+						echo $message . '<br>';
 					}?>
-				</div>
+					</div>
 			<?php } ?>
 
 			<div class="txt-center">
-				<img class="avatar avatar-lg" src="<?php echo USERS_IMAGES_PATH . $image ?>" alt="<?php echo $_SESSION['user']['first_name']; ?>"> 
+				<img class="avatar avatar-lg" src="<?php echo $myUser::IMAGE_PATH . $myUser->getImage() ?>" alt="<?php echo $_SESSION['user']['first_name']; ?>"> 
 			</div>
 
 			<div class="pad-left pad-right pad-half-top">
@@ -46,28 +44,29 @@ $id = $_SESSION['user']['id'];
 						Tamaño máximo de imagen en bytes. Esto es sólo para cortar la transferencia en caso de que se pase del tamaño
 						pero de igual manera debe validarse del lado del servidor.
 					-->
-					<input type="hidden" name="id" value="<?php echo $id ?>" />
-					<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo USERS_IMAGES_MAX_SIZE ?>" />
+					<input type="hidden" name="id" value="<?php echo $myUser->getId(); ?>" />
+					<input type="hidden" name="image" value="<?php echo $myUser->getImage(); ?>" />
+					<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $maxFileSize; ?>" />
 					
 					<div class="form-group">
 						<label for="email">Email</label>
-						<input type="email" name="email" class="form-control" id="email" value="<?php echo $email; ?>">
+						<input type="email" name="email" class="form-control" id="email" value="<?php echo $myUser->getEmail(); ?>">
 						<!--<i class="icon-mail-alt"></i>-->
 					</div>
 
 					<div class="form-group">		
 						<label for="first_name">Nombre</label>
-						<input type="text" name="first_name" class="form-control" id="first_name" value="<?php echo $firstName; ?>">
+						<input type="text" name="first_name" class="form-control" id="first_name" value="<?php echo $myUser->getFirstName(); ?>">
 					</div>
 
 					<div class="form-group">		
 						<label for="last_name">Apellido</label>
-						<input type="text" name="last_name" class="form-control" id="last_name" value="<?php echo $lastName; ?>">
+						<input type="text" name="last_name" class="form-control" id="last_name" value="<?php echo $myUser->getLastName(); ?>">
 					</div>
 
 					<div class="form-group">		
 						<label for="last_name">Imagen</label>
-						<input type="file" name="image" class="form-control" id="image" value="">
+						<input type="file" name="new_image" class="form-control" id="new_image" value="">
 						<p>La imagen debe ser de al menos 400px x 400px y deberá pesar menos de 5 Mb.</p>
 					</div>
 
