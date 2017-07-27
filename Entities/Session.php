@@ -31,12 +31,12 @@ class Session
 		$this->setExpirationDate($expirationDate);
 	}
 
-	static function login(int $id_user, string $token = '', \DateTime $expirationDate = null) 
+	static function newLogin(int $id_user, string $token = '', \DateTime $expirationDate = null) 
 	{
 		return new Session($id_user, self::TYPE_LOGIN, $token, $expirationDate);
 	}
 
-	static function passwordRecover(int $id_user, string $token = '', \DateTime $expirationDate = null) 
+	static function newRecovery(int $id_user, string $token = '', \DateTime $expirationDate = null) 
 	{
 		return new Session($id_user, self::TYPE_RECOVERY, $token, $expirationDate);
 	}
