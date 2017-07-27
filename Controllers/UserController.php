@@ -14,21 +14,26 @@ class UserController
 		$myUserForm = new UserRegisterForm($post);
 		if ($myUserForm->isValid()) 
 		{
-			$myUser = new User($post['first_name'], $post['last_name'], $post['email']);
-			$myUser->setPassword($post['password']);
 
 			$myUserRepo = new UserRepository();
-			$myUserRepo->insert($myUser);
+            if ($myUserRepo->fetchByField('email', $myUserForm->getEmail())) {
+                $myUserForm->addMessage(array('email' => 'El mail ya se encuentra registrado'));
+            }
+            else
+            {
+				$myUser = new User($post['first_name'], $post['last_name'], $post['email']);
+				$myUser->setPassword($post['password']);
+            	
+				$myUserRepo->insert($myUser);
+        		
+        		$this->_login($myUser);
 
-			header('location: welcome.php');
-			exit;
-			/* @todo: Log user in */
+				header('location: welcome.php');
+				exit;
+            }
 		}
-		else
-		{
-			/* Set view messages */
-			$GLOBALS['view']['messages'] = $myUserForm->getMessages();
-		}
+		/* Set view messages */
+		$GLOBALS['view']['messages'] = $myUserForm->getMessages();
 	}
 
 	public function profileAction($post, $files)
@@ -56,13 +61,10 @@ class UserController
 
 			header('location: profile.php');
 			exit;
-			/* @todo: Log user in */
 		}
-		else
-		{
-			/* Set view messages */
-			$GLOBALS['view']['messages'] = $myUserForm->getMessages();
-		}
+
+		/* Set view messages */
+		$GLOBALS['view']['messages'] = $myUserForm->getMessages();
 	}
 
 	/* Tal vez esto deba ir en una clase de autentiación */
@@ -89,7 +91,7 @@ class UserController
             	}
             	else
             	{
-            		$this->_saveSession($myUser);
+            		$this->_login($myUser);
     				if($myLoginForm->getRememberMe())
 					{
 						setcookie('og_user', $myUser->getId(), 5*365*24*60*60+time());
@@ -140,7 +142,7 @@ class UserController
 
 	        if($myUser)
 	        {
-	            $this->_saveSession($myUser);
+	            $this->_login($myUser);
 	        }
 	    }
 
@@ -149,7 +151,7 @@ class UserController
 	/**
 	* @param User $user
 	*/
-	private function _saveSession(User $user)
+	private function _login(User $user)
 	{
 		$user->setPassword('');
 		$_SESSION['og_user'] = $user;

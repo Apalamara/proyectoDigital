@@ -1,11 +1,9 @@
 <?php
 
-namespace OfficeGuru\Entities;
+namespace Lando;
 
 class Token
 {
-	private function __construct()	{}
-
 	/**
 	 * @param int $length
 	 * @return string 
@@ -17,18 +15,20 @@ class Token
 	    $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
 	    $codeAlphabet.= "0123456789";
 	    for($i=0;$i<$length;$i++){
-	        $token .= $codeAlphabet[$this->crypto_rand_secure(0,strlen($codeAlphabet))];
+	        $token .= $codeAlphabet[self::crypto_rand_secure(0,strlen($codeAlphabet))];
 	    }
 
 	    return $token;
 	}
 
-	/** 
-	 * @param int $min
-	 * @param int $max
+	/**
+	 * https://stackoverflow.com/questions/3290283/what-is-a-good-way-to-produce-a-random-site-salt-to-be-used-in-creating-passwo/3291689#3291689
+	 *
+	 * @param int $min 
+	 * @param int $max 
 	 * @return int
 	 */
-	private function crypto_rand_secure(int $min, int $max)
+	static function crypto_rand_secure(int $min, int $max)
 	{
         $range = $max - $min;
         if ($range < 0) return $min; // not so random...

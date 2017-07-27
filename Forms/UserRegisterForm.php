@@ -43,12 +43,6 @@ class UserRegisterForm extends Form
         {
             $this->addMessage(array('email' => 'Debe ingresar un email válido'));
         } 
-        else
-        {
-            if ($myUserRepo->fetchByField('email', $this->email)) {
-                $this->addMessage(array('email' => 'El mail ya se encuentra registrado'));
-            }
-        }
 
         if(trim($this->firsName) == '')
         {
