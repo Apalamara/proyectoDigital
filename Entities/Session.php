@@ -41,6 +41,46 @@ class Session
 		return new Session($id_user, self::TYPE_RECOVERY, $token, $expirationDate);
 	}
 
+	/** @return int */
+	public function getIdUser(): int
+	{
+		return $this->id_user;
+	}
+
+	/** @return string */
+	public function getType(): string
+	{
+		return $this->type;
+	}
+
+	/** @return string */
+	public function getToken(): string
+	{
+		return $this->token;
+	}
+
+	/** @return string */
+	public function getExpirationDate(): string
+	{
+		return $this->expirationDate->format('Y-m-d H:i:s');
+	}
+
+	/** @return string */
+	public function getExpirationDateInSeconds(): string
+	{
+		return $this->expirationDate->getTimestamp();
+	}
+
+	/** @return void */
+	public function setCookie() {
+		setcookie('og_' . $this->type, $this->getToken(), $this->getExpirationDateInSeconds());
+	}
+
+	/** @return void */
+	public function unsetCookie() {
+		setcookie('og_' + $this->type, 0, time() * -1);
+	}
+
 	private function setExpirationDate($date)
 	{
 		if(!$date)
@@ -48,6 +88,6 @@ class Session
 			$date = new \DateTime("now");
 			$date->modify(self::DEFAULT_EXPIRATION_DATE[$this->type]);
 		}
-		$this->expirationDate = $date->format('Y-m-d H:i:s');	
+		$this->expirationDate = $date;	
 	}
 }

@@ -2,10 +2,12 @@
 namespace OfficeGuru\Controllers;
 
 use OfficeGuru\Entities\User;
+use OfficeGuru\Entities\Session;
 use OfficeGuru\Forms\UserLoginForm;
 use OfficeGuru\Forms\UserRegisterForm;
 use OfficeGuru\Forms\UserProfileForm;
 use OfficeGuru\Repositories\UserRepository;
+use OfficeGuru\Repositories\SessionRepository;
 
 class UserController
 {
@@ -94,14 +96,19 @@ class UserController
             		$this->_login($myUser);
     				if($myLoginForm->getRememberMe())
 					{
-						setcookie('og_user', $myUser->getId(), 5*365*24*60*60+time());
+						$mySession = Session::newLogin($myUser->getId());
+						$mySession->setCookie();
+
+						$mySessionRepo = new SessionRepository();
+						$mySessionRepo->insert($mySession);
 					}
+
+		            // @todo Save destination URL if existent and redirect
+					header('location: index.php');
+					exit;
             	}
             }
 
-            // @todo Save destination URL if existent and redirect
-			header('location: index.php');
-			exit;
 		}
 
 		/* Set view messages */
@@ -112,7 +119,13 @@ class UserController
 	{
 	    unset($_SESSION['og_user']);
 	    session_destroy();
-	    setcookie('og_user', 0, time() * -1);
+	    
+	    $token = $_COOKIE['og_login'];
+
+	    setcookie('og_login', 0, time() * -1);
+
+		$mySessionRepo = new SessionRepository();
+		$mySessionRepo->deleteByToken($token);
 
 	    header('location: index.php');
 		exit;
@@ -132,18 +145,25 @@ class UserController
 	public function autoLogin()
 	{
 	    //chequear si ya esta logueado
-	    if(!$this->isLoggedIn() && isset($_COOKIE['og_user']))
+	    if(!$this->isLoggedIn() && isset($_COOKIE['og_login']))
 	    {
 	        //leer cookie
-	        $userId = $_COOKIE['og_user'];
+	        $token = $_COOKIE['og_login'];
 
-        	$myUserRepo = new UserRepository;
-        	$myUser = $myUserRepo->fetchByField('user_id', $userId);
-
-	        if($myUser)
+	        if($token) 
 	        {
-	            $this->_login($myUser);
+				$mySessionRepo = new SessionRepository();
+				$mySession = $mySessionRepo->fetchByField('token', $token);
+
+	        	$myUserRepo = new UserRepository;
+	        	$myUser = $myUserRepo->fetchByField('user_id', $mySession->getUserId());
+
+		        if($myUser)
+		        {
+		            $this->_login($myUser);
+		        }
 	        }
+
 	    }
 
 	}

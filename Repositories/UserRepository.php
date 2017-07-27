@@ -21,7 +21,9 @@ class UserRepository extends MySQL
             $row['email']
         );
 
+        /** @doubt ¿Acá van todos los campos de la base? */
         $entity->setId($row['user_id']);
+        $entity->setPassword($row['password']);
         if($row['image'])
         {
             $entity->setImage($row['image']);
