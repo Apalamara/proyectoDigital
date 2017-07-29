@@ -16,7 +16,7 @@ class SessionRepository extends Repository
     protected function rowToEntity(array $row): Session
     {
         $entity = new User(
-            $row['id_user'],
+            $row['user_id'],
             $row['type'],
             $row['token'],
             $row['expiration_date']
@@ -37,14 +37,14 @@ class SessionRepository extends Repository
             $currentDate = new \DateTime("now");
             
             $stmt = $this->conn->prepare("
-                INSERT INTO {$this->table} (
-                    id_user, type, token, creation_date, expiration_date
+                INSERT INTO " . static::$table . " (
+                    user_id, type, token, creation_date, expiration_date
                 ) VALUES (
-                    :id_user, :type, :token, :creation_date, :expiration_date
+                    :user_id, :type, :token, :creation_date, :expiration_date
                 );
             ");
 
-            $stmt->bindValue(':id_user', $session->getIdUser(), PDO::PARAM_INT);
+            $stmt->bindValue(':user_id', $session->getIdUser(), PDO::PARAM_INT);
             $stmt->bindValue(':type', $session->getType(), PDO::PARAM_STR);
             $stmt->bindValue(':token', $session->getToken(), PDO::PARAM_STR);
             $stmt->bindValue(':creation_date', $currentDate->format('Y-m-d H:i:s'), PDO::PARAM_STR);
@@ -73,7 +73,7 @@ class SessionRepository extends Repository
         try 
         {       
             $stmt = $this->conn->prepare("
-                DELETE FROM {$this->table} WHERE token = ':token';
+                DELETE FROM " . static::$table . " WHERE token = ':token';
             ");
 
             $stmt->bindValue(':token', $token, PDO::PARAM_STR);

@@ -120,12 +120,14 @@ class UserController
 	    unset($_SESSION['og_user']);
 	    session_destroy();
 	    
-	    $token = $_COOKIE['og_login'];
+	    $token = $_COOKIE['og_login'] ?? null;
 
-	    setcookie('og_login', 0, time() * -1);
+	    if ($token) {
+		    setcookie('og_login', 0, time() * -1);
 
-		$mySessionRepo = new SessionRepository();
-		$mySessionRepo->deleteByToken($token);
+			$mySessionRepo = new SessionRepository();
+			$mySessionRepo->deleteByToken($token);
+	    }
 
 	    header('location: index.php');
 		exit;

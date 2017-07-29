@@ -42,7 +42,7 @@ class UserRepository extends Repository
         try 
         {
             $stmt = $this->conn->prepare("
-                INSERT INTO {$this->table} (
+                INSERT INTO " . static::$table . " (
                     first_name, last_name, email, password, image
                 ) VALUES (
                     :first_name, :last_name, :email, :password, :image
@@ -82,7 +82,7 @@ class UserRepository extends Repository
         try 
         {
             $stmt = $this->conn->prepare("
-                UPDATE {$this->table} SET
+                UPDATE " . static::$table . " SET
                     first_name = ':first_name',
                     last_name = ':last_name',
                     email = ':email',
