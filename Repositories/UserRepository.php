@@ -5,9 +5,9 @@ namespace OfficeGuru\Repositories;
 use OfficeGuru\Entities\User;
 use \PDO;
 
-class UserRepository extends MySQL
+class UserRepository extends Repository
 {
-    private $name = 'user';
+    protected static $table = 'user';
 
     /**
      * @param array $row
@@ -33,29 +33,6 @@ class UserRepository extends MySQL
     }
 
     /**
-     * @param string $field
-     * @param mixed $value
-     * @todo como documento lo de abajo
-     * @return User | null
-     */
-    function fetchByField(string $field, $value)//: ?User // Requires PHP 7.1
-    {
-        $stmt = $this->conn->prepare("
-            SELECT {$this->name}.*
-            FROM {$this->name}
-            WHERE LOWER({$this->name}.$field) = LOWER(:value)
-            LIMIT 1
-        ");
-
-        $stmt->bindValue(':value', trim($value), PDO::PARAM_STR);
-        $stmt->execute();
-
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $result ? $this->rowToEntity($result) : null;
-    }
-
-    /**
      * @param User $user
      * @return bool
      */
@@ -65,7 +42,7 @@ class UserRepository extends MySQL
         try 
         {
             $stmt = $this->conn->prepare("
-                INSERT INTO {$this->name} (
+                INSERT INTO {$this->table} (
                     first_name, last_name, email, password, image
                 ) VALUES (
                     :first_name, :last_name, :email, :password, :image
@@ -105,7 +82,7 @@ class UserRepository extends MySQL
         try 
         {
             $stmt = $this->conn->prepare("
-                UPDATE {$this->name} SET
+                UPDATE {$this->table} SET
                     first_name = ':first_name',
                     last_name = ':last_name',
                     email = ':email',

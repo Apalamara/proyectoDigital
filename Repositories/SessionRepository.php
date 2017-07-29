@@ -5,9 +5,9 @@ namespace OfficeGuru\Repositories;
 use OfficeGuru\Entities\Session;
 use \PDO;
 
-class SessionRepository extends MySQL
+class SessionRepository extends Repository
 {
-    private $name = 'session';
+    protected static $table = 'session';
 
     /**
      * @param array $row
@@ -26,29 +26,6 @@ class SessionRepository extends MySQL
     }
 
     /**
-     * @param string $field
-     * @param mixed $value
-     * @todo como documento lo de abajo
-     * @return User | null
-     */
-    function fetchByField(string $field, $value)//: ?User // Requires PHP 7.1
-    {
-        $stmt = $this->conn->prepare("
-            SELECT {$this->name}.*
-            FROM {$this->name}
-            WHERE LOWER({$this->name}.$field) = LOWER(:value)
-            LIMIT 1
-        ");
-
-        $stmt->bindValue(':value', trim($value), PDO::PARAM_STR);
-        $stmt->execute();
-
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $result ? $this->rowToEntity($result) : null;
-    }
-
-    /**
      * @param Session $session
      * @return bool
      */
@@ -60,7 +37,7 @@ class SessionRepository extends MySQL
             $currentDate = new \DateTime("now");
             
             $stmt = $this->conn->prepare("
-                INSERT INTO {$this->name} (
+                INSERT INTO {$this->table} (
                     id_user, type, token, creation_date, expiration_date
                 ) VALUES (
                     :id_user, :type, :token, :creation_date, :expiration_date
@@ -96,7 +73,7 @@ class SessionRepository extends MySQL
         try 
         {       
             $stmt = $this->conn->prepare("
-                DELETE FROM {$this->name} WHERE token = ':token';
+                DELETE FROM {$this->table} WHERE token = ':token';
             ");
 
             $stmt->bindValue(':token', $token, PDO::PARAM_STR);

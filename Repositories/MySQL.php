@@ -14,6 +14,8 @@ abstract class MySQL
 
     /** @var PDO */
     protected $conn;
+    private $name = 'session';
+
 
     public function __construct()
     {
@@ -26,28 +28,10 @@ abstract class MySQL
     protected function connect()
     {
         $this->conn = new PDO(
-            'mysql:host=localhost;dbname=office_guru;charset=utf8mb4',
+            self::DB_DRIVER . ":host=" . self::DB_HOST .";dbname=" . self::DB_NAME . ";charset=utf8mb4",
             self::DB_USERNAME,
             self::DB_PASSWORD,
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
         );
-    }
-
-
-    protected abstract function rowToEntity(array $row);
-
-    /**
-     * @param array $rows
-     * @return array
-     */
-    protected function rowsToEntities(array $rows)
-    {
-        $entities = [];
-        foreach($rows as $row)
-        {
-            $entities[] = $this->rowToEntity($row);
-        }
-
-        return $entities;
     }
 }

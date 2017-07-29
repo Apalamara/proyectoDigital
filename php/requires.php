@@ -16,6 +16,7 @@ require_once('Forms/UserRegisterForm.php');
 require_once('Forms/UserProfileForm.php');
 
 require_once('Repositories/MySQL.php');
+require_once('Repositories/Repository.php');
 require_once('Repositories/UserRepository.php');
 require_once('Repositories/SessionRepository.php');
 
