@@ -71,9 +71,9 @@ class SessionRepository extends Repository
     {
         $this->conn->beginTransaction();
         try 
-        {       
+        {   
             $stmt = $this->conn->prepare("
-                DELETE FROM " . static::$table . " WHERE token = ':token';
+                DELETE FROM " . static::$table . " WHERE token = :token;
             ");
 
             $stmt->bindValue(':token', $token, PDO::PARAM_STR);
